@@ -2,12 +2,12 @@
 
 require('./bootstrap');
 
-window.Vue = require('vue').default;
+import { createApp } from 'vue';
+import router from "./Routes/"
+import ListIngredients from "./components/ingredients/ListIngredients"
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-
-
-
-const app = new Vue({
-    el: '#app',
-});
+createApp({
+    components: {
+        ListIngredients
+    }
+}).use(router).mount('#app')

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\Ingredients\ingredientsController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +18,8 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::view('/{any}', 'dashboard')
+    ->middleware('auth')
+    ->where('any', '.*');

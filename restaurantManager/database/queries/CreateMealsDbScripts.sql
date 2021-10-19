@@ -12,7 +12,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- Table `MealsDb`.`Meals`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `MealsDb`.`Meals` (
-  `MealId` INT NULL AUTO_INCREMENT,
+  `MealId` INT NOT NULL AUTO_INCREMENT,
   `Name` VARCHAR(45) NOT NULL,
   `Price` DECIMAL(10,2) UNSIGNED NULL,
   `Status` INT NOT NULL DEFAULT 1,

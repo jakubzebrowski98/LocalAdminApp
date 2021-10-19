@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\Api\Meals\ingredientController;
 use App\Http\Controllers\Api\Meals\MelasController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -21,4 +20,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('meals', [MelasController::class, 'getMeals']);
-Route::get('Ingredients', [ingredientController::class, 'getIngredients']);
+Route::apiResource('ingredients', App\Http\Controllers\Api\Ingredients\ingredientsController::class);

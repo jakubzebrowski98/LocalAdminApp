@@ -15,8 +15,10 @@ class IngredientsResource extends JsonResource
     public function toArray($request)
     {
         return [
+            'IngId' => $this->IngId,
             'IngName' => $this->IngName,
             'Status' => $this->Status,
+
         ];
     }
 }
