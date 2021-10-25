@@ -25,6 +25,13 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
-        "vue-router": "^4.0.12"
+        "laravel-mix": "^6.0.10",
+        "mdb-ui-kit": "^3.9.0",
+        "mdb-vue-ui-kit": "^1.5.0",
+        "mdbvue": "^6.7.3",
+        "vue": "^2.6.14",
+        "vue-loader": "^15.9.6",
+        "vue-router": "^4.0.12",
+        "vue-template-compiler": "^2.6.12"
     }
 }
