@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-import App from "../components/App"
+import App from "../components/IngredientsPage/IngredientsPage"
 
 const routes  = [
     {

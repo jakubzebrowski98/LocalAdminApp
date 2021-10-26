@@ -20,6 +20,6 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-Route::view('/{any}', 'dashboard')
+Route::view('/{any}', 'home')
     ->middleware('auth')
     ->where('any', '.*');

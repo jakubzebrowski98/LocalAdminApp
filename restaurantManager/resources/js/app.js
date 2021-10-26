@@ -4,7 +4,7 @@ require('./bootstrap');
 
 import { createApp } from 'vue';
 import router from "./Routes/"
-import ListIngredients from "./components/ingredients/ListIngredients"
+import ListIngredients from "./components/IngredientsPage/IngredientsPage"
 
 createApp({
     components: {

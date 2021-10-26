@@ -26,7 +26,7 @@
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
+<body class="sidebar-toggled">
     {{-- <div id="navbar">
         @include('components.NavBar')
     </div>

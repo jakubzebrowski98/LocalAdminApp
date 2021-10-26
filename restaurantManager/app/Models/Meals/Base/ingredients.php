@@ -10,6 +10,7 @@ class ingredients extends Model
     protected $connection = 'mysql';
     protected $table = 'ingredients';
     protected $primaryKey = 'IngId';
+    public $timestamps = false;
 
     protected $fillable = [
         'IngId',

@@ -17,7 +17,7 @@ class ingredientsController extends Controller
 
     public function store(Request $request)
     {
-        $ingredient = ingredients::create($request);
+        $ingredient = ingredients::create($request->all());
 
         return new IngredientsResource($ingredient);
     }

@@ -8,10 +8,9 @@ export default function useIngredients() {
     const router = useRouter()
     const errors = ref('')
 
-    const getIng = async  () =>{
+    const getIng = async () =>{
         let res = await axios.get('/api/ingredients');
         ingredients.value = res.data.data;
-
     }
 
 
@@ -19,7 +18,7 @@ export default function useIngredients() {
 
         errors.value = ''
         try {
-            await axios.post('/api/ingredients/', data).then(() => this.getIng())
+            await axios.post('/api/ingredients/', data)
         } catch (e) {
             if (e.response.status === 422) {
                 for (const key in e.response.data.errors) {
