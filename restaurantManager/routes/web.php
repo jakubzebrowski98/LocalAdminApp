@@ -27,13 +27,5 @@ Route::view('/{any}', 'home')
     ->where('any', '.*');
 
 
-//strona kontaktu
-Route::get('/contact', function () {
-    return view('contact');
-});
-
-//przycisk formularza kontaktowego
-Route::post('/submit', 'ContactFormController@submit');
-
 
 
