@@ -19,5 +19,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('meals', [MelasController::class, 'getMeals']);
 Route::apiResource('ingredients', App\Http\Controllers\Api\Ingredients\ingredientsController::class);
+Route::apiResource('meals', MelasController::class);

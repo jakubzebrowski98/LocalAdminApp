@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useRouter } from 'vue-router';
 
 export default function useIngredients() {
+    const ingredient = ref([])
     const ingredients = ref([])
     const router = useRouter()
     const errors = ref('')
@@ -13,6 +14,10 @@ export default function useIngredients() {
         ingredients.value = res.data.data;
     }
 
+    const getThisIng = async (IngId) =>{
+        let res = await axios.get('/api/ingredients/' + IngId);
+        ingredient.value = res.data.data;
+    }
 
     const storeIng = async (data) => {
 
@@ -41,6 +46,7 @@ export default function useIngredients() {
         getIng,
         destroyIng,
         storeIng,
-        errors
+        errors,
+        getThisIng
     }
 }
