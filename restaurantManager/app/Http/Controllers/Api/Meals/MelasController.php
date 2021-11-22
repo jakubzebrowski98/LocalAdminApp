@@ -9,42 +9,7 @@ use App\Http\Resources\MealsResource;
 
 class MelasController extends Controller
 {
-    public function index()
-    {
-        return MealsResource::collection(Meals::all());
-    }
-
-    public function store(Request $request)
-    {
-        $meals = Meals::create($request->all());
-
-        return new MealsResource($meals);
-    }
-
-    public function show(Meals $meals)
-    {
-        return new MealsResource($meals);
-    }
-
-    public function update(Request $request, Meals $meals)
-    {
-        $meals->update($request->all());
-    }
-
-
-    public function destroy(Meals $meals)
-    {
-        $meals->delete();
-
-        return response()->noContent();
-    }
-
-    public function index(){
-
-        $meals = Meals::all();
-    
-        return response()->json([
-            'meals' =>  $meals
-        ]);
+    public function getMeals(){
+        return MealsResource::collection(Meals::get());
     }
 }
