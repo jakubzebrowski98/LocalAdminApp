@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
-use App\Http\Requests\RegisterRequest;
 
 class AuthController extends Controller
 {

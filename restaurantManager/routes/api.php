@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\Meals\MelasController;
+use App\Http\Controllers\Api\Ingredients\ingredientsController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ForgotController;
 use Illuminate\Http\Request;

@@ -12,4 +12,13 @@ class MelasController extends Controller
     public function getMeals(){
         return MealsResource::collection(Meals::get());
     }
+
+    public function index(){
+
+        $meals = Meals::all();
+    
+        return response()->json([
+            'meals' =>  $meals
+        ]);
+    }
 }
