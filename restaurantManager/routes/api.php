@@ -1,9 +1,6 @@
 <?php
 
-use App\Http\Controllers\Api\Meals\MealsController;
-use App\Http\Controllers\Api\Ingredients\ingredientsController;
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\ForgotController;
+use App\Http\Controllers\Api\Meals\MelasController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,13 +19,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('meals', [MealsController::class, 'getMeals']);
+Route::get('meals', [MelasController::class, 'getMeals']);
 Route::apiResource('ingredients', App\Http\Controllers\Api\Ingredients\ingredientsController::class);
-Route::post('login', [AuthController::class, 'login']);
-Route::post('register',[AuthController::class, 'register']);
-Route::post('forgot', [ForgotController::class, 'forgot']);
-Route::post('reset', [ForgotController::class, 'reset']);
-Route::get('user', [AuthController::class, 'user'])->middleware('auth:api');
-Route::post('add/meal', [MealsController::class, 'store']);
-Route::get('delete/meal/{MealId}', [MealsController::class, 'destroy']);
-Route::post('update/meal/{MealId}', [MealsController::class, 'update']);

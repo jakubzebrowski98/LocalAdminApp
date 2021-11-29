@@ -25,20 +25,36 @@
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/customCss.css') }}" rel="stylesheet">
 </head>
 <body class="sidebar-toggled">
-    <div id="app">
-        <div id="wrapper">
-            @include('components.SideBar')
-            <div id="content-wrapper">
-                @include('components.NavBar')
-                <div id="content" class="col-sm mt-1 px-0">
+    {{-- <div id="navbar">
+        @include('components.NavBar')
+    </div>
+    <div id="sidebar">
+        @include('components.SideBar')
+    </div> --}}
+    
+      
+    <div id="wrapper">
+        @include('components.SideBar')
+        <div id="content-wrapper" class="d-flex flex-column">
+            @include('components.NavBar')
+            <div id="content">
+                <div id="app">
                     <router-view />
                 </div>
             </div>
+            @include('components.Footer')
+
         </div>
+
     </div>
+
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+
 </body>
 
 <script src="{{ mix('js/app.js') }}"></script>
