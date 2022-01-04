@@ -15,6 +15,7 @@ class Meals extends Model
     protected $fillable = [
         'MealId',
         'Name',
+        'Description',
         'Price',
         'Status',
     ];

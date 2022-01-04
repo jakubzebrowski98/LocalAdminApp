@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\Orders\OrdersController;
 use App\Http\Controllers\Api\Meals\MealsController;
 use App\Http\Controllers\Api\Ingredients\ingredientsController;
 use App\Http\Controllers\AuthController;
@@ -22,6 +23,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('orders', [OrdersController::class, 'getOrders']);
+Route::post('order', [OrdersController::class, 'store']);
 Route::get('meals', [MealsController::class, 'getMeals']);
 Route::apiResource('ingredients', App\Http\Controllers\Api\Ingredients\ingredientsController::class);
 Route::post('login', [AuthController::class, 'login']);

@@ -17,6 +17,7 @@ class MealsResource extends JsonResource
         return [
             'Id' => $this->MealId,
             'Name' => $this->Name,
+            'Description' => $this->Description,
             'Price' => $this->Price,
             'Status' => $this->Status,
         ];
