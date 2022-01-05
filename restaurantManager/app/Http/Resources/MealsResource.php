@@ -15,9 +15,11 @@ class MealsResource extends JsonResource
     public function toArray($request)
     {
         return [
+            'MealId' => $this->MealId,
             'Name' => $this->Name,
             'Price' => $this->Price,
             'Status' => $this->Status,
+            'StatusName' => $this->StatusName,
         ];
     }
 }

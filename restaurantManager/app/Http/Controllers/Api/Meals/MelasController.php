@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Api\Meals;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\Meals\Base\Meals;
 use App\Http\Resources\MealsResource;
+use App\Models\Meals\Base\Meals;
+use Illuminate\Http\Request;
 
 class MelasController extends Controller
 {
@@ -21,21 +21,23 @@ class MelasController extends Controller
         return new MealsResource($meals);
     }
 
-    public function show(Meals $meals)
+    public function show($MealId)
     {
-        return new MealsResource($meals);
+        return new MealsResource(Meals::findOrFail($MealId));
     }
 
-    public function update(Request $request, Meals $meals)
+    public function update(Request $request, $MealId)
     {
+        $meals = Meals::findOrFail($MealId);
         $meals->update($request->all());
     }
 
 
-    public function destroy(Meals $meals)
+    public function destroy($MealId)
     {
-        $meals->delete();
-
-        return response()->noContent();
+        $meals = Meals::findOrFail($MealId);
+        if($meals->delete()){
+            return response()->noContent();
+        }
     }
 }

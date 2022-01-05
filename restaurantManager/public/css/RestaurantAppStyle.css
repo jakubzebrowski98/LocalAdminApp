@@ -1,0 +1,13 @@
+.welcome-background{
+    height: 100vh;
+    background:rgb(207, 207, 106);
+}
+
+.welcome-card{
+    backdrop-filter: blur(2px);
+}
+
+.no-style-link{
+    text-decoration: none;
+    
+}

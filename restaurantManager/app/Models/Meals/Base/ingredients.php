@@ -13,17 +13,17 @@ class ingredients extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'IngId',
         'IngName',
         'Status',
     ];
 
-    public function getStatusAttribute($value)
+    public function getStatusNameAttribute()
     {
-        if($value == 1){
-            return $value = "Aktywny";
+        $status = $this->Status;
+        if($status == 1){
+            return "Aktywny";
         }else{
-            return $value = "Nieaktywny";
+            return "Nieaktywny";
         }
     }
 }

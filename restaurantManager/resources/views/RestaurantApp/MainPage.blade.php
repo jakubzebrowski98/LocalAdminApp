@@ -25,19 +25,11 @@
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/customCss.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/RestaurantAppStyle.css') }}" rel="stylesheet">
 </head>
-<body class="sidebar-toggled">
+<body>
     <div id="app">
-        <div id="wrapper">
-            @include('components.SideBar')
-            <div id="content-wrapper">
-                @include('components.NavBar')
-                <div id="content" class="col-sm mt-1 px-0">
-                    <router-view/>
-                </div>
-            </div>
-        </div>
+        <router-view/>
     </div>
 </body>
 

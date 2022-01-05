@@ -22,10 +22,13 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
-Route::view('/{any}', 'home')
-    ->middleware('auth')
-    ->where('any', '.*');
+Route::get('/restaurant-app/home', function () {
+    return view('RestaurantApp.MainPage');
+})->name('RestaurantApp');
 
+Route::get('/{any}', function () {
+    return view('home');
+})->where('any','.*');
 
 
 

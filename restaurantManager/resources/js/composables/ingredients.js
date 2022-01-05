@@ -33,19 +33,29 @@ export default function useIngredients() {
         }
     }
 
+    const updateIng = async (IngId) => {
+        errors.value = ''
+        try {
+            await axios.put('/api/ingredients/' + IngId, ingredient.value)
+            await router.push({name: 'Ingredients.index'})
+        } catch (e) {
+            if (e.response.status === 422) {
+               errors.value = e.response.data.errors
+            }
+        }
+    }
 
     const destroyIng = async (IngId) => {
         await axios.delete('/api/ingredients/' + IngId);
-
     }
-
-
 
     return {
         ingredients,
+        ingredient,
         getIng,
         destroyIng,
         storeIng,
+        updateIng,
         errors,
         getThisIng
     }

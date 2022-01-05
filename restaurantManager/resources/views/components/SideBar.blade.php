@@ -12,12 +12,13 @@
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
             aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-carrot"></i>
-            <span>Menu</span>
+            <span>Zarządzaj składnikami</span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" >Menu</a>
                 <router-link :to="{ name: 'Ingredients.index' }" class="collapse-item">Składniki</router-link>
+                <router-link :to="{ name: 'meals.index' }" class="collapse-item">Posiłki</router-link>
+                <router-link :to="{ name: 'menu.index' }" class="collapse-item">Menu</router-link>
             </div>
         </div>
     </li>
