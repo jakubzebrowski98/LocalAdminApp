@@ -24,6 +24,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+<<<<<<< Updated upstream
 Route::apiResource('ingredients', ingredientsController::class);
 
 Route::apiResource('meals', MelasController::class);
@@ -40,6 +41,21 @@ Route::post('register',[AuthController::class, 'register']);
 Route::post('forgot', [ForgotController::class, 'forgot']);
 Route::post('reset', [ForgotController::class, 'reset']);
 Route::get('user', [AuthController::class, 'user'])->middleware('auth:api');
+=======
+Route::get('meals', [MealsController::class, 'getMeals']);
+Route::apiResource('ingredients', App\Http\Controllers\Api\Ingredients\ingredientsController::class);
+>>>>>>> Stashed changes
 Route::post('add/meal', [MealsController::class, 'store']);
 Route::get('delete/meal/{MealId}', [MealsController::class, 'destroy']);
 Route::post('update/meal/{MealId}', [MealsController::class, 'update']);
+Route::group([
+    'middleware' => 'api',
+    'prefix' => 'auth'
+
+], function ($router) {
+    Route::post('/login', [AuthController::class, 'login']);
+    Route::post('/register', [AuthController::class, 'register']);
+    Route::post('/logout', [AuthController::class, 'logout']);
+    Route::post('/refresh', [AuthController::class, 'refresh']);
+    Route::get('/profile', [AuthController::class, 'userProfile']);    
+});
