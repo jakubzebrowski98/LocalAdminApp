@@ -1,7 +1,6 @@
 <?php
 
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\Menu\Ingredients\IngredientsController;
+use App\Http\Controllers\Api\Ingredients\ingredientsController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -18,9 +17,15 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//strona kontaktu
+Route::get('/contact', function () {
+    return view('contact');
+});
+
+//przycisk formularza kontaktowego
+Route::post('/submit', 'ContactFormController@submit');
 
 Route::get('/restaurant-app/home', function () {
     return view('RestaurantApp.MainPage');

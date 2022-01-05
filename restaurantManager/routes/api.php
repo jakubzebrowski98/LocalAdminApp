@@ -40,3 +40,6 @@ Route::post('register',[AuthController::class, 'register']);
 Route::post('forgot', [ForgotController::class, 'forgot']);
 Route::post('reset', [ForgotController::class, 'reset']);
 Route::get('user', [AuthController::class, 'user'])->middleware('auth:api');
+Route::post('add/meal', [MealsController::class, 'store']);
+Route::get('delete/meal/{MealId}', [MealsController::class, 'destroy']);
+Route::post('update/meal/{MealId}', [MealsController::class, 'update']);
