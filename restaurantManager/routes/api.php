@@ -8,6 +8,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ForgotController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use League\OAuth2\Server\Entities\AuthCodeEntityInterface;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,9 +21,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
     
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
 Route::apiResource('ingredients', ingredientsController::class);
 
@@ -35,11 +36,14 @@ Route::delete('mealsIngredients/{MealIngId}/delete', [MealsIngredientsController
 Route::get('menu', [MenuController::class, 'index']);
 Route::post('menu/add', [MenuController::class, 'addToMenu']);
 
-Route::post('login', [AuthController::class, 'login']);
-Route::post('register',[AuthController::class, 'register']);
-Route::post('forgot', [ForgotController::class, 'forgot']);
-Route::post('reset', [ForgotController::class, 'reset']);
-Route::get('user', [AuthController::class, 'user'])->middleware('auth:api');
 Route::post('add/meal', [MealsController::class, 'store']);
 Route::get('delete/meal/{MealId}', [MealsController::class, 'destroy']);
 Route::post('update/meal/{MealId}', [MealsController::class, 'update']);
+
+Route::post('register', [\App\Http\Controllers\AuthController::class, 'register']);
+Route::post('login', [\App\Http\Controllers\AuthController::class, 'login']);
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('user', [\App\Http\Controllers\AuthController::class, 'user']);
+    Route::post('logout', [\App\Http\Controllers\AuthController::class, 'logout']);
+});
