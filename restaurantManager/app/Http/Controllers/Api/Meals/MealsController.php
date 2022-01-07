@@ -13,12 +13,9 @@ class MealsController extends Controller
     public function getMeals(){
         return MealsResource::collection(Meals::get());
     }
-    public function index(){
-
-        $meals = Meals::all();
-        return response()->json([
-        'meals' => $meals
-    ]);
+    public function index()
+    {
+        return MealsResource::collection(Meals::all());
     }
     
 
