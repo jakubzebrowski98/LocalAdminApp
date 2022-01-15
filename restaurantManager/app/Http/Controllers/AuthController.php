@@ -24,7 +24,7 @@ class AuthController extends Controller
     {
         if (!Auth::attempt($request->only('email', 'password'))) {
             return response([
-                'message' => 'Invalid credentials!'
+                'message' => 'Wprowadzono błędne dane!'
             ], Response::HTTP_UNAUTHORIZED);
         }
         /** @var \App\Models\MyUserModel $user **/

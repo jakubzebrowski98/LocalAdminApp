@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\Ingredients\ingredientsController;
 use App\Http\Controllers\Api\Meals\MealsIngredientsController;
 use App\Http\Controllers\Api\Meals\MealsController;
+use App\Http\Controllers\Api\Orders\OrdersController;
 use App\Http\Controllers\Api\Menu\MenuController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ForgotController;
@@ -28,7 +29,8 @@ use League\OAuth2\Server\Entities\AuthCodeEntityInterface;
 Route::apiResource('ingredients', ingredientsController::class);
 
 Route::apiResource('meals', MealsController::class);
-
+Route::get('orders', [OrdersController::class, 'getOrders']);
+Route::post('order', [OrdersController::class, 'store']);
 Route::get('mealsIngredients/{MealId}', [MealsIngredientsController::class, 'getThisMealsIng']);
 Route::post('mealsIngredients/store', [MealsIngredientsController::class, 'store']);
 Route::delete('mealsIngredients/{MealIngId}/delete', [MealsIngredientsController::class, 'destroy']);
