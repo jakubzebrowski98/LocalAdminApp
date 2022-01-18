@@ -19,6 +19,7 @@
             <thead>    
                 <tr>
                     <th scope="col">Nazwa</th>
+                    <th scope="col">Kategoria</th>
                     <th scope="col">Cena</th>
                 </tr>
             </thead>
@@ -26,6 +27,9 @@
                 <tr v-for="menu in Menu">
                     <td>
                        {{ menu.Name }}
+                    </td>
+                    <td>
+                       {{ menu.CategoryName }}
                     </td>
                     <td>
                        {{ menu.Price }} zł

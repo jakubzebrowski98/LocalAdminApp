@@ -19,6 +19,7 @@ class Meals extends Model
         'Name',
         'Price',
         'Status',
+        'Category'
     ];
 
     public function getStatusNameAttribute()
@@ -29,5 +30,12 @@ class Meals extends Model
         }else{
             return "Nieaktywny";
         }
+    }
+
+    public function getCategoryNameAttribute()
+    {
+        $categories = Category::pluck('Name', 'id');
+
+        return $categories[$this->Category];
     }
 }

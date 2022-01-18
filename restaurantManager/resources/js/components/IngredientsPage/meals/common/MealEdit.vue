@@ -17,6 +17,13 @@
                                 <input type="text" id="Price" class="form-control" name="Price" v-model="meal.Price">
                                 <label for="Price">Cena</label>
                             </div>
+                            <div class="form-floating pb-3">
+                                <select class="form-select" id="floatingSelect" v-model="meal.Category">
+                                    <option value="0">--Wybierz--</option>
+                                    <option v-for="Category in Categories" v-bind:value="Category.id">{{ Category.Name }}</option>
+                                </select>
+                              <label for="floatingSelect">Kategoria</label>
+                            </div>
                             <div class="form-floating mb-3">
                                 <select class="form-select" id="Status" v-model="meal.Status">
                                     <option value="">-- Wybierz --</option>
@@ -88,6 +95,7 @@
 
 import toolbar from "../../common/toolbar.vue"
 import { onMounted, reactive } from "vue"
+import useCategory from "../../../../composables/Category";
 import useMeals from "../../../../composables/Meals.js";
 import useIngredients from "../../../../composables/ingredients";
 import useMealsIngredients from "../../../../composables/MealsIngredients";
@@ -103,6 +111,7 @@ export default{
         toolbar 
     },
     setup(props) {
+        const { getCategories, Categories } = useCategory()
         const { getThisMeal, updateMeal, meal, errors } = useMeals()
         const { getIng, ingredients } = useIngredients()
         const { getMealsIngredients, mealsIngredients, storeMealsIngredients, destroyMealsIngredients } = useMealsIngredients()
@@ -112,6 +121,7 @@ export default{
             MealId: props.MealId,
         })
 
+        onMounted(getCategories)
         onMounted(getIng)
         onMounted(getMealsIngredients(props.MealId))
         onMounted(getThisMeal(props.MealId))
@@ -139,7 +149,8 @@ export default{
             mealsIngredients,
             saveOnChange,
             deleteMealIngredient,
-            form
+            form,
+            Categories
         }
     }
 }

@@ -19,13 +19,6 @@ Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-//strona kontaktu
-Route::get('/contact', function () {
-    return view('contact');
-});
-
-//przycisk formularza kontaktowego
-Route::post('/submit', 'ContactFormController@submit');
 
 Route::get('/restaurant-app/home', function () {
     return view('RestaurantApp.MainPage');

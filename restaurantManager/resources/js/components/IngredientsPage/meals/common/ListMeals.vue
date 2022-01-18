@@ -20,6 +20,7 @@
                     <tr>
                         <th class="col-sm-4" scope="col">Nazwa</th>
                         <th class="col-sm-3" scope="col">Cena</th>
+                        <th class="col-sm-3" scope="col">Kategoria</th>
                         <th class="col-sm-3" scope="col">Status</th>
                         <th></th>
                     </tr>
@@ -31,6 +32,9 @@
                         </td>
                         <td>
                            {{ meal.Price }} zł
+                        </td>
+                        <td>
+                           {{ meal.CategoryName }} 
                         </td>
                         <td>
                            {{ meal.StatusName }}
@@ -61,6 +65,13 @@
                                     <input type="text" class="form-control" v-model="form.Price" id="Price" placeholder="Cena">
                                     <label for="Price">Cena</label>
                                 </div>
+                                <div class="form-floating">
+                                    <select class="form-select" id="floatingSelect" v-model="form.Category">
+                                        <option value="">--Wybierz--</option>
+                                        <option v-for="Category in Categories" v-bind:value="Category.id">{{ Category.Name }}</option>
+                                    </select>
+                                  <label for="floatingSelect">Kategoria</label>
+                                </div>
                                 <div class="form-floating mb-3">
                                     <select class="form-select" id="Status" v-model="form.Status">
                                         <option value="">-- Wybierz --</option>
@@ -86,18 +97,22 @@
 <script>
 
     import useMeals from "../../../../composables/Meals.js"
+    import useCategory from "../../../../composables/Category";
     import { onMounted, reactive } from "vue"
     
     export default {
         setup() {
             const { meals, getMeals, getThisMeal, storeMeal, meal, errors } = useMeals()
+            const { getCategories, Categories } = useCategory()
 
             const form = reactive({
                 Name: '',
                 Status: '',
                 Price: '',
+                Category: '',
             })
 
+            onMounted(getCategories)
             onMounted(getMeals)
 
             const saveMeal = async () => {
@@ -122,7 +137,8 @@
                 errors,
                 deleteMeal,
                 saveMeal,
-                form
+                form,
+                Categories
             }
         }
     }

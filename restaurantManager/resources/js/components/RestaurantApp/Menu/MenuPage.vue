@@ -1,15 +1,21 @@
 <template>
-    <div>
-        <div class="row">
-            <div class="col-3">
-                <div v-for="menu in Menu" class="card border-2 py-3 rounded-0">
+<div class="page">
+    <div class="row">
+        <div class="col-3">
+            <div class="card text-center text-light bg-dark border-2 py-3 rounded-0">
+                <h2 class="display-6">Wybierz</h2>
+            </div>
+            <div class="categoryBox">
+                <div v-for="menu in Menu" class="card text-center border-2 py-3 rounded-0">
                     <h2 class="display-6">{{ menu.Name }}</h2>
                 </div>
             </div>
-            <div class="col-9 bg-success">
-            </div>
+        </div>
+        <div class="col-9 bg-success">
         </div>
     </div>
+</div>
+    
 </template>
 
 <script>
@@ -29,3 +35,14 @@
         }
     }
 </script>
+
+<style>
+.page {
+    height:100vh;
+    width: 100vw;
+}
+.categoryBox{
+    height: 80vh;
+    overflow: auto;
+}
+</style>

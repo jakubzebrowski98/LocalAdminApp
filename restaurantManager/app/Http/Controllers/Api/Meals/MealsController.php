@@ -1,50 +1,43 @@
 <?php
-
 namespace App\Http\Controllers\Api\Meals;
 
+
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\Meals\Base\Meals;
 use App\Http\Resources\MealsResource;
-use Illuminate\Support\Facades\Validator;
+use App\Models\Meals\Base\Meals;
+use Illuminate\Http\Request;
 
 class MealsController extends Controller
 {
-    public function getMeals(){
-        return MealsResource::collection(Meals::get());
+    public function index()
+    {
+        return MealsResource::collection(Meals::all());
     }
-    public function index(){
 
-        $meals = Meals::all();
-        return response()->json([
-        'meals' => $meals
-    ]);
+    public function store(Request $request)
+    {
+        $meals = Meals::create($request->all());
+
+        return new MealsResource($meals);
     }
-    
 
-  public function store(Request $request){
-    $meal = new Meals;
-    $meal->Name = $request->Name;
-    $meal->Price = $request->Price;
-    $meal->save();
-  return response()->json([
-      'status' => 'success'
-  ]);
-} 
+    public function show($MealId)
+    {
+        return new MealsResource(Meals::findOrFail($MealId));
+    }
 
     public function update(Request $request, $MealId)
     {
-        $meal = Meals::find($MealId);
-        $meal->Name = $request->Name;
-        $meal->Price = $request->Price;
-        $meal->save();
+        $meals = Meals::findOrFail($MealId);
+        $meals->update($request->all());
     }
+
 
     public function destroy($MealId)
     {
-        $meal = Meals::find($MealId);
-        $meal->delete();
-        return response()->json('Meal successfully removed');
+        $meals = Meals::findOrFail($MealId);
+        if($meals->delete()){
+            return response()->noContent();
+        }
     }
-    
 }
