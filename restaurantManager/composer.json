@@ -11,7 +11,7 @@
         "intervention/validation": "^3.0",
         "laravel/framework": "^8.54",
         "laravel/passport": "^10.2",
-        "laravel/sanctum": "^2.11",
+        "laravel/sanctum": "^2.13",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.3",
         "twbs/bootstrap": "5.1.3"
