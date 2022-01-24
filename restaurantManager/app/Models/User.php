@@ -20,5 +20,8 @@ class User extends Authenticatable
     protected $hidden = [
         'password'
     ];
-
+    public function roles()
+{
+    return $this->belongsToMany(Role::class);
+}
 }

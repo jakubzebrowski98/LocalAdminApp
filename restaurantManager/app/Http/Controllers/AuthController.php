@@ -13,11 +13,14 @@ class AuthController extends Controller
 {
     public function register(Request $request)
     {
-        return User::create([
+        $user = User::create([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'password' => Hash::make($request->input('password'))
         ]);
+        $user->roles()->attach(1); 
+        
+        return response()->json(['message' => 'Registration Successful.'], 201);
     }
 
     public function login(Request $request)
@@ -37,7 +40,8 @@ class AuthController extends Controller
         return response([
             'success' => true,
             'token' => $token,
-            'user' => $user
+            'user' => $user,
+            'role' => $user->roles()->get()
         ])->withCookie($cookie);
     }
 
@@ -54,4 +58,5 @@ class AuthController extends Controller
             'message' => 'Success'
         ])->withCookie($cookie);
     }
+
 }
