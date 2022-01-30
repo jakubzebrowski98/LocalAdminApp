@@ -25,9 +25,10 @@
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/customCss.css') }}" rel="stylesheet">
     <link href="{{ asset('css/RestaurantAppStyle.css') }}" rel="stylesheet">
 </head>
-<body>
+<body class="">
     <div id="app">
         <router-view/>
     </div>

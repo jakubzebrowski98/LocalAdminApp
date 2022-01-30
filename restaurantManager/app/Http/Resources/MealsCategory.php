@@ -17,6 +17,7 @@ class MealsCategory extends JsonResource
         return [
             'id' => $this->id,
             'Name' => $this->Name,
+            'Photo' => $this->Photo,
         ];
     }
 }

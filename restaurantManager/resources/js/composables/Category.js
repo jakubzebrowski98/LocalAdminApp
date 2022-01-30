@@ -37,7 +37,7 @@ export default function useIngredients() {
         errors.value = ''
         try {
             await axios.put('/api/category/' + id, Category.value)
-            await router.push({name: 'meals.index'})
+            await router.push({name: 'category.index'})
         } catch (e) {
             if (e.response.status === 422) {
                errors.value = e.response.data.errors

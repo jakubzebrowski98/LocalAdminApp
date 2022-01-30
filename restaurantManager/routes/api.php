@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\Meals\CategoryController;
 use App\Http\Controllers\Api\Meals\MealsController;
 use App\Http\Controllers\Api\Meals\MealsIngredientsController;
 use App\Http\Controllers\Api\Menu\MenuController;
+use App\Http\Controllers\Api\Orders\NewOrderController;
 use App\Http\Controllers\Api\Orders\OrdersController;
 use Illuminate\Support\Facades\Route;
 
@@ -32,10 +33,12 @@ Route::apiResource('category', CategoryController::class);
 Route::get('mealsIngredients/{MealId}', [MealsIngredientsController::class, 'getThisMealsIng']);
 Route::get('orders', [OrdersController::class, 'getOrders']);
 Route::post('order', [OrdersController::class, 'store']);
+Route::post('new-order', [NewOrderController::class, 'store']);
 Route::post('mealsIngredients/store', [MealsIngredientsController::class, 'store']);
 Route::delete('mealsIngredients/{MealIngId}/delete', [MealsIngredientsController::class, 'destroy']);
 
 Route::get('menu', [MenuController::class, 'index']);
+Route::get('menu/category/{id}', [MenuController::class, 'getMealsByCategory']);
 Route::post('menu/add', [MenuController::class, 'addToMenu']);
 
 Route::post('add/meal', [MealsController::class, 'store']);

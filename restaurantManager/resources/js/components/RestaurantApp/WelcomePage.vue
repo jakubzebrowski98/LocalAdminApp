@@ -7,8 +7,8 @@
                 </h1>
                 <div class="row mb-5">
                     <div class="col">
-                        <img :src="OutRestaurant" alt="">
-                        <router-link :to="{ name: 'restaurant.menu', params: { type: '1' } }" class="no-style-link text-dark">
+                        <h1 class="text-light"><i class="fas fa-shopping-bag"></i></h1>
+                        <router-link :to="{ name: 'restaurant.menu', params: { type: '1', Category: 0  } }" class="no-style-link text-dark">
                             <div class="col-sm mb-3">
                                 <div class="card mx-2">
                                     <h1 class="display-6 mt-3">
@@ -19,7 +19,9 @@
                         </router-link>
                     </div>
                     <div class="col">
-                        <router-link :to="{ name: 'restaurant.menu', params: { type: '2' } }" class="no-style-link text-dark">
+                        <h1 class="text-light"><i class="bi bi-bag"></i></h1>
+                        
+                        <router-link :to="{ name: 'restaurant.menu', params: { type: '2',Category: 0 } }" class="no-style-link text-dark">
                             <div class="col-sm">
                                 <div class="card mx-2">
                                     <h1 class="display-6 mt-3">
@@ -36,15 +38,11 @@
 </template>
 
 <script>
-    import InRestaurant from "../../../asset/RestaurantApp/in-restaurant.png"
-    import OutRestaurant from "../../../asset/RestaurantApp/out-restaurant.png"
 
     export default {
         setup() {
 
             return {
-                OutRestaurant,
-                InRestaurant
             }
         }
     }

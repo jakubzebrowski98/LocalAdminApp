@@ -4,12 +4,18 @@ import { useRouter } from 'vue-router';
 
 export default function useMenu() {
     const Menu = ref([])
+    const MenuByCategory = ref([])
     const errors = ref('')
     const router = useRouter()
 
     const getMenu = async () =>{
         let res = await axios.get('/api/menu');
         Menu.value = res.data.data;
+    }
+
+    const getMenuByCategory = async (id) =>{
+        let res = await axios.get('/api/menu/category/' + id);
+        MenuByCategory.value = res.data.data;
     }
 
     const updateMenu = async (data) => {
@@ -27,7 +33,9 @@ export default function useMenu() {
     return {
         getMenu,
         Menu,
+        MenuByCategory,
         updateMenu,
-        errors
+        errors,
+        getMenuByCategory
     }
 }

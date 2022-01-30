@@ -8,9 +8,6 @@ import MenuPage from "../components/MenuPage/MenuPage"
 
 import Home from "../components/homePage"
 
-import RestaurantApp from "../components/RestaurantApp/WelcomePage"
-import orderMenu from "../components/RestaurantApp/Menu/MenuPage"
-
 
 const routes  = [
     {
@@ -37,6 +34,11 @@ const routes  = [
         props: true
     },
     {
+        path: '/lista-kategori',
+        name: 'category.index',
+        component: MealsPage,
+    },
+    {
         path: '/lista-menu',
         name: 'menu.index',
         component: MenuPage,
@@ -45,21 +47,12 @@ const routes  = [
         path: '/home',
         name: 'home',
         component: Home,
-    },
-    {
-        path: '/restaurant-app/home',
-        name: 'restaurant-app',
-        component: RestaurantApp,
-    },
-    {
-        path: '/restaurant-app/home/menu/:type',
-        name: 'restaurant.menu',
-        component: orderMenu,
-        props: true,
-    },
+    }
 ]
 
-export default createRouter({
-    history: createWebHistory(),
-    routes 
-})
+const router = createRouter({
+    history: createWebHistory(process.env.BASE_URL),
+    routes
+  })
+  
+  export default router

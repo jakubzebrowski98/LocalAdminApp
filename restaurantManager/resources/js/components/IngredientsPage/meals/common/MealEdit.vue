@@ -1,13 +1,11 @@
 <template>
     <div>
         <toolbar />
-        <div class="row mx-1 mt-3">
-            <div class="col-md-4 mb-3">
-                <div class="card shadow-lg px-0 mx-0">
-                    <div class="card-header">
+        <div class="col mt-3">
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <div class="card card-body shadow-lg">
                         <h1>Edytuj posiłek</h1>
-                    </div>
-                    <div class="card-body">
                         <form v-on:submit.prevent="saveMeal">
                             <div class="form-floating mb-3">
                                 <input type="text" id="Name" class="form-control" name="Name" v-model="meal.Name">
@@ -39,17 +37,16 @@
                         </form>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-8">
-                <div class="card shadow-lg px-0 mx-0">
-                    <div class="card-header">
-                        <div class="row">
-                            <div class="col-md">
-                                <h1 class="dasplay-6">Lista składników</h1>
-                            </div>
+                <div class="col-md-6">
+                    <div class="card card-body shadow-lg">
+                        <h1 class="dasplay-6">Zdjęcie</h1>
+                        <input ref="file" type="file">
+                        <div class="d-flex justify-content-end">
+                            <button type="button" v-on:click="handleFileUpload()" class="btn btn-success">Zapisz</button>
                         </div>
                     </div>
-                    <div class="card-body table-responsive">
+                    <div class="card card-body shadow-lg">
+                        <h1 class="dasplay-6">Lista składników</h1>
                         <table class="table table-striped table-hover table-sm mb-0">
                             <thead>    
                                 <tr>
@@ -88,13 +85,14 @@
                 </div>
             </div>
         </div>
+        
     </div>
 </template>
 
 <script>
 
 import toolbar from "../../common/toolbar.vue"
-import { onMounted, reactive } from "vue"
+import { onMounted, reactive, ref } from "vue"
 import useCategory from "../../../../composables/Category";
 import useMeals from "../../../../composables/Meals.js";
 import useIngredients from "../../../../composables/ingredients";
@@ -120,6 +118,15 @@ export default{
             IngId: '',
             MealId: props.MealId,
         })
+
+        const file = ref(null)
+
+        const handleFileUpload = async() => {
+            var formData = new FormData();
+            formData.append('file',file.value.files[0]);
+
+            console.log(formData);
+        }
 
         onMounted(getCategories)
         onMounted(getIng)
@@ -150,7 +157,9 @@ export default{
             saveOnChange,
             deleteMealIngredient,
             form,
-            Categories
+            Categories,
+            handleFileUpload,
+            file
         }
     }
 }
