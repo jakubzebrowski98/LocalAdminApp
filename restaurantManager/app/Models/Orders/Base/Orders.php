@@ -8,23 +8,23 @@ use Illuminate\Database\Eloquent\Model;
 class Orders extends Model
 {
     protected $connection = 'mysql';
-    protected $table = 'Orders';
+    protected $table = 'orders';
     protected $primaryKey = 'OrderId';
     public $timestamps = false;
     
     protected $fillable = [
-        'OrderId',
         'OrderNo',
-        'User',
-        'Phone',
-        'Name',
-        'Address',
-        'Postal',
-        'City',
-        'Details',
         'OrderPrice',
         'Status',
         'OrderDate',
         'EndDate',
+        'UserId',
     ];
+
+    public function getStatusNameAttribute()
+    {
+        $statuses = OrderStatus::pluck('Name','id');
+
+        return $statuses[$this->Status];
+    }
 }

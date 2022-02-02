@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddProtoToMealsCategory extends Migration
+class DropClientidFromOrderMeals extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddProtoToMealsCategory extends Migration
      */
     public function up()
     {
-        Schema::table('meals_category', function (Blueprint $table) {
-            $table->string('Photo')->nullable();
+        Schema::table('ordermeals', function (Blueprint $table) {
+            $table->dropColumn('ClientId');
         });
     }
 
@@ -25,8 +25,6 @@ class AddProtoToMealsCategory extends Migration
      */
     public function down()
     {
-        Schema::table('meals_category', function (Blueprint $table) {
-            $table->dropColumn('Photo');
-        });
+        //
     }
 }

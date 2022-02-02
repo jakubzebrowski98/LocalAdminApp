@@ -9,20 +9,22 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 
 
 -- -----------------------------------------------------
--- Table `MealsDb`.`Meals`
+-- Table `MealsDb`.`meals`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `MealsDb`.`Meals` (
+CREATE TABLE IF NOT EXISTS `MealsDb`.`meals` (
   `MealId` INT NOT NULL AUTO_INCREMENT,
   `Name` VARCHAR(45) NOT NULL,
+  'Description' VARCHAR(255) NULL,
   `Price` DECIMAL(10,2) UNSIGNED NULL,
   `Status` INT NOT NULL DEFAULT 1,
+  'Photo' VARCHAR(255) null,
   PRIMARY KEY (`MealId`));
 
 
 -- -----------------------------------------------------
--- Table `MealsDb`.`Ingredients`
+-- Table `MealsDb`.`Ingingredientsredients`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `MealsDb`.`Ingredients` (
+CREATE TABLE IF NOT EXISTS `MealsDb`.`ingredients` (
   `IngId` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `IngName` VARCHAR(45) NOT NULL,
   `Status` INT NOT NULL DEFAULT 1,
@@ -32,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `MealsDb`.`Ingredients` (
 -- -----------------------------------------------------
 -- Table `MealsDb`.`MealsIngredients`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `MealsDb`.`MealsIngredients` (
+CREATE TABLE IF NOT EXISTS `MealsDb`.`meals_ingredients` (
   `MealIngId` INT NOT NULL AUTO_INCREMENT,
   `MealId` INT NOT NULL,
   `IngId` INT UNSIGNED NOT NULL,
@@ -43,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `MealsDb`.`MealsIngredients` (
 -- -----------------------------------------------------
 -- Table `MealsDb`.`ClientsWeb`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `MealsDb`.`ClientsWeb` (
+CREATE TABLE IF NOT EXISTS `MealsDb`.`clients_web` (
   `Clients` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `FirstName` VARCHAR(45) NOT NULL,
   `LastName` VARCHAR(45) NOT NULL,
@@ -56,22 +58,23 @@ CREATE TABLE IF NOT EXISTS `MealsDb`.`ClientsWeb` (
 
 
 -- -----------------------------------------------------
--- Table `MealsDb`.`Orders`
+-- Table `MealsDb`.`orders`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `MealsDb`.`Orders` (
+CREATE TABLE IF NOT EXISTS `MealsDb`.`orders` (
   `OrderId` INT NOT NULL AUTO_INCREMENT,
   `OrderNo` VARCHAR(45) NOT NULL,
   `OrderPrice` DECIMAL(10,2) NOT NULL,
   `Status` INT NOT NULL DEFAULT 0,
   `OrderDate` DATETIME NOT NULL,
   `EndDate` DATETIME NOT NULL,
+  'UserId' int NOT NULL
   PRIMARY KEY (`OrderId`));
 
 
 -- -----------------------------------------------------
--- Table `MealsDb`.`OrderMeals`
+-- Table `MealsDb`.`order_meals`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `MealsDb`.`OrderMeals` (
+CREATE TABLE IF NOT EXISTS `MealsDb`.`order_meals` (
   `Id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `ClientId` INT UNSIGNED NOT NULL,
   `MealId` INT UNSIGNED NOT NULL,

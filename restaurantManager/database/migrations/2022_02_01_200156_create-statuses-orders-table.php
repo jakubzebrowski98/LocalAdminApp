@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddProtoToMealsCategory extends Migration
+class CreateStatusesOrdersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class AddProtoToMealsCategory extends Migration
      */
     public function up()
     {
-        Schema::table('meals_category', function (Blueprint $table) {
-            $table->string('Photo')->nullable();
+        Schema::create('order_statuses', function (Blueprint $table) {
+            $table->id();
+            $table->string('Value');
+            $table->string('Name');
         });
     }
 
@@ -25,8 +27,6 @@ class AddProtoToMealsCategory extends Migration
      */
     public function down()
     {
-        Schema::table('meals_category', function (Blueprint $table) {
-            $table->dropColumn('Photo');
-        });
+        Schema::dropIfExists('order_statuses');
     }
 }
