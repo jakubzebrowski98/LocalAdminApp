@@ -8,9 +8,17 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Hash;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\DB;
 
 class AuthController extends Controller
 {
+    // public function index(){
+    //     //$users = User::get();
+    //     //return $users;
+    //     $users = DB::table('users')->get();
+    //     return $users;
+    //    }
+
     public function register(Request $request)
     {
         $user = User::create([
@@ -45,7 +53,7 @@ class AuthController extends Controller
             'role' => $user->roles()->get()
         ])->withCookie($cookie);
     }
-
+ 
     public function user()
     {
         return Auth::user();
