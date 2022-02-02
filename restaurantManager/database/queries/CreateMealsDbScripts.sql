@@ -76,11 +76,11 @@ CREATE TABLE IF NOT EXISTS `MealsDb`.`orders` (
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `MealsDb`.`order_meals` (
   `Id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `ClientId` INT UNSIGNED NOT NULL,
+  `OrderId` INT NOT NULL,
   `MealId` INT UNSIGNED NOT NULL,
   `OrderDate` DATETIME NOT NULL,
   `Status` INT NOT NULL DEFAULT 1,
-  `OrderId` INT NOT NULL,
+  `Quantity` INT NOT NULL,
   PRIMARY KEY (`Id`));
 
 
