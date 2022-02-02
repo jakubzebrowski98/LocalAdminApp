@@ -19,21 +19,25 @@ class Meals extends Seeder
                 'Name' => 'Burger S',
                 'Price' => '12',
                 'Status' => '0',
+                'Category' => '0'
             ],
             [
                 'Name' => 'Burger M',
                 'Price' => '15',
                 'Status' => '0',
+                'Category' => '0'
             ],
             [
                 'Name' => 'Burger XL',
                 'Price' => '20',
                 'Status' => '0',
+                'Category' => '0'
             ],
             [
                 'Name' => 'Burger Hot',
                 'Price' => '18',
                 'Status' => '0',
+                'Category' => '0'
             ],
         ]);
     }

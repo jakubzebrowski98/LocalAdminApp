@@ -8,7 +8,8 @@ use App\Http\Controllers\Api\Menu\MenuController;
 use App\Http\Controllers\Api\Orders\NewOrderController;
 use App\Http\Controllers\Api\Orders\OrdersController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Resources\UserResource;
+use App\Models\User;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -40,15 +41,18 @@ Route::delete('mealsIngredients/{MealIngId}/delete', [MealsIngredientsController
 Route::get('menu', [MenuController::class, 'index']);
 Route::get('menu/category/{id}', [MenuController::class, 'getMealsByCategory']);
 Route::post('menu/add', [MenuController::class, 'addToMenu']);
-
 Route::post('add/meal', [MealsController::class, 'store']);
 Route::get('delete/meal/{MealId}', [MealsController::class, 'destroy']);
 Route::post('update/meal/{MealId}', [MealsController::class, 'update']);
 
 Route::post('register', [\App\Http\Controllers\AuthController::class, 'register']);
 Route::post('login', [\App\Http\Controllers\AuthController::class, 'login']);
-
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('user', [\App\Http\Controllers\AuthController::class, 'user']);
     Route::post('logout', [\App\Http\Controllers\AuthController::class, 'logout']);
+});
+
+
+Route::get('/users', function () {
+    return UserResource::collection(User::all());
 });
