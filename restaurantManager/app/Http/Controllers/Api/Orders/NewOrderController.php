@@ -32,11 +32,11 @@ class NewOrderController extends Controller
         $newOrder->OrderDate = now();
         $newOrder->UserId = 0;
 
-        // if($newOrder->save()){
-        //     $result = true;
-        // }else{
-        //     return response()->json('error');
-        // }
+        if($newOrder->save()){
+            $result = true;
+        }else{
+            return response()->json('error');
+        }
 
         foreach ($meals as $meal){
             $newOrderMeals = new OrderMeals();
@@ -47,11 +47,11 @@ class NewOrderController extends Controller
             $newOrderMeals->OrderId = $newOrder->OrderId;
 
             
-            // if($newOrderMeals->save()){
-            //     $result = true;
-            // }else{
-            //     return response()->json('error');
-            // }
+            if($newOrderMeals->save()){
+                $result = true;
+            }else{
+                return response()->json('error');
+            }
         }
 
         if($result === true){
