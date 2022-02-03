@@ -64,6 +64,7 @@ CREATE TABLE IF NOT EXISTS `MealsDb`.`orders` (
   `OrderId` INT NOT NULL AUTO_INCREMENT,
   `OrderNo` VARCHAR(45) NOT NULL,
   `OrderPrice` DECIMAL(10,2) NOT NULL,
+  `OrderType` INT NOT NULL,
   `Status` INT NOT NULL DEFAULT 0,
   `OrderDate` DATETIME NOT NULL,
   `EndDate` DATETIME NOT NULL,

@@ -14,7 +14,9 @@ class AddUseridToOrdersTable extends Migration
     public function up()
     {
         Schema::table('orders', function (Blueprint $table) {
-            $table->string('UserId');
+            if($table->IfNotExists('UserId')){
+                $table->string('UserId');
+            }
         });
     }
 
