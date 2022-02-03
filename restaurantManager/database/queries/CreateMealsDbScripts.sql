@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `MealsDb`.`orders` (
   `OrderType` INT NOT NULL,
   `Status` INT NOT NULL DEFAULT 0,
   `OrderDate` DATETIME NOT NULL,
-  `EndDate` DATETIME NOT NULL,
+  `EndDate` DATETIME NULL,
   'UserId' int NOT NULL
   PRIMARY KEY (`OrderId`));
 
