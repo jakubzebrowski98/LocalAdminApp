@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class OrderMeals extends Model
 {
     protected $connection = 'mysql';
-    protected $table = 'ordermeals';
+    protected $table = 'order_meals';
     protected $primaryKey = 'Id';
     public $timestamps = false;
 
