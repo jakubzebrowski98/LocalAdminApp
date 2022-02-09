@@ -20,10 +20,10 @@ class MealsResource extends JsonResource
             'Description' => $this->Description,
             'Price' => $this->Price,
             'Status' => $this->Status,
-            // 'StatusName' => $this->StatusName,
+            'StatusName' => $this->StatusName,
             'Category' => $this->Category,
-            'Photo' => $this->Photo
-            // 'CategoryName' => $this->CategoryName,
+            'Photo' => $this->Photo,
+            'CategoryName' => $this->CategoryName,
         ];
     }
 }
