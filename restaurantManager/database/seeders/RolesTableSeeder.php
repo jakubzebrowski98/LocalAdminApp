@@ -1,7 +1,7 @@
 <?php
 
 namespace Database\Seeders;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 
 class RolesTableSeeder extends Seeder
@@ -32,6 +32,6 @@ class RolesTableSeeder extends Seeder
     
         ];
     
-        \DB::table('roles')->insert($roles);
+        DB::table('roles')->insert($roles);
     }
 }
