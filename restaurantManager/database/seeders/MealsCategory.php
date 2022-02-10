@@ -24,6 +24,15 @@ class MealsCategory extends Seeder
             [
                 'Name' => 'Napoje',
             ],
+            [
+                'Name' => 'Zupy',
+            ],
+            [
+                'Name' => 'Zestawy',
+            ],
+            [
+                'Name' => 'Desery',
+            ],
         ]);
     }
 }

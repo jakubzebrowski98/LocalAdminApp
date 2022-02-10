@@ -42,7 +42,16 @@ class Meals extends Model
             return "Przystawki";
         }
         if($category == 3){
-            return "Przystawki";
+            return "Napoje";
+        }
+        if($category == 4){
+            return "Zupy";
+        }
+        if($category == 5){
+            return "Zestawy";
+        }
+        if($category == 6){
+            return "Desery";
         }
         else {
             return 'Nie podano';
