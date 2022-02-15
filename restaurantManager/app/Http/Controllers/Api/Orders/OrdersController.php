@@ -4,8 +4,12 @@ namespace App\Http\Controllers\Api\Orders;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use App\Models\Orders\Base\Orders;
-use App\Http\Resources\OrdersResource;
+use App\Models\Orders\Base\OrderMeals;
+use App\Models\Orders\Base\OrderStatus;
+//use App\Http\Resources\OrdersResource;
+use App\Http\Resources\Order\OrdersResources;
 use Illuminate\Support\Facades\Validator;
 
 class OrdersController extends Controller
@@ -23,23 +27,54 @@ class OrdersController extends Controller
     
 
     public function store(Request $request){
+        $lastOrder = Orders::whereDate('OrderDate', Carbon::today())->orderBy('OrderDate', 'DESC')->first();
+
+        if($lastOrder !== null){
+            $orderNo = $lastOrder->OrderNo + 1;
+        }else{
+            $orderNo = 1;
+        }
+
+        $result = true;
+
         $order = new Orders;
-        $order->OrderNo = $request->OrderNo;
-        $order->User = $request->User;
-        $order->Phone = $request->Phone;
-        $order->Name = $request->Name;
-        $order->Address = $request->Address;
-        $order->Postal = $request->Postal;
-        $order->City = $request->City;
-        $order->Details = $request->Details;
+        $order->OrderNo = $orderNo;
+        //1 = na miejscu 2 = na wynos 3 = zamówienia web
+        $order->OrderType = 3;
         $order->OrderPrice = $request->OrderPrice;
-        $order->OrderDate = $request->OrderDate;
-        $order->EndDate = $request->EndDate;
+        $order->Status = 1;
+        $order->OrderDate = now();
+        $order->UserId = $request->UserId;
         $order->save();
-        return response()->json([
-        'status' => 'success'
-    ]);
-    } 
+
+        if($order->save()){
+            $result = true;
+        }else{
+            return response()->json('error');
+        }
+
+        $meals = $request->meals;
+
+        foreach ($meals as $meal){
+            $OrderMeals = new OrderMeals();
+            $OrderMeals->MealId = $meal['MealId'];
+            $OrderMeals->OrderDate = $order->OrderDate;
+            $OrderMeals->Status = 1;
+            $OrderMeals->Quantity = $meal['Quantity'];
+            $OrderMeals->OrderId = $order->OrderId;
+
+            
+            if($OrderMeals->save()){
+                $result = true;
+            }else{
+                return response()->json($meals);
+            }
+        }
+
+        if($result === true){
+            return response()->json('success');
+        }
+    }
 
     public function update(Request $request, $OrderId)
     {
