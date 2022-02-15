@@ -39,7 +39,7 @@ class OrdersController extends Controller
 
         $order = new Orders;
         $order->OrderNo = $orderNo;
-        //1 = na miejscu 2 = na wynos 3 = zamówienia web
+        //1 = na miejscu 2 = na wynos 3 = zamówienia web 
         $order->OrderType = 3;
         $order->OrderPrice = $request->OrderPrice;
         $order->Status = 1;
