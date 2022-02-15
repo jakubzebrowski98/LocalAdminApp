@@ -54,8 +54,16 @@ class NewOrderController extends Controller
             }
         }
 
+        $response = (object) array(
+            'status' => 'success',
+            'OrderNo' => $newOrder->OrderNo
+        );
+
+
         if($result === true){
-            return response()->json('success');
-        }
+            return response()->json($response);
+        }else{
+               return response()->json('error');
+            }
     } 
 }

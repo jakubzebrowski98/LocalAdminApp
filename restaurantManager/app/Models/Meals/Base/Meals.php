@@ -34,8 +34,27 @@ class Meals extends Model
 
     public function getCategoryNameAttribute()
     {
-        $categories = Category::pluck('Name', 'id');
-
-        return $categories[$this->Category];
+        $category = $this->Category;
+        if($category == 1){
+            return "Dania główne";
+        }
+        if($category == 2){
+            return "Przystawki";
+        }
+        if($category == 3){
+            return "Napoje";
+        }
+        if($category == 4){
+            return "Zupy";
+        }
+        if($category == 5){
+            return "Zestawy";
+        }
+        if($category == 6){
+            return "Desery";
+        }
+        else {
+            return 'Nie podano';
+        }
     }
 }
