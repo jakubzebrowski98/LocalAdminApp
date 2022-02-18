@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\UserResource;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Hash; 
@@ -9,24 +10,33 @@ use App\Models\User;
 
 class UserController extends Controller
 {
-    public function register(Request $request)
-    { 
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|confirmed|min:8',
-        ]);
+    public function index()
+    {
+        return UserResource::collection(User::all());
+    }
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]); 
+    public function show(User $user)
+    {
+        return new UserResource($user);
+    }
+    public function store(Request $request)
+    {
+        $user = User::create($request->all());
 
-        $user->roles()->attach(1); 
-        
-        return response()->json(['message' => 'Registration Successful.'], 201);
+        return new UserResource($user);
+    }
 
+    public function update(Request $request, User $user)
+    {
+        $user->update($request->all());
+    }
+
+
+    public function destroy(User $user)
+    {
+        $user->delete();
+
+        return response()->noContent();
     }
 
 }

@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Resources\UserResource;
 use App\Models\User;
 use App\Http\Controllers\ForgotController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -31,6 +32,8 @@ Route::apiResource('ingredients', ingredientsController::class);
 Route::apiResource('meals', MealsController::class);
 
 Route::apiResource('category', CategoryController::class);
+
+Route::apiResource('users', UserController::class);
 
 Route::get('mealsIngredients/{MealId}', [MealsIngredientsController::class, 'getThisMealsIng']);
 Route::get('orders', [OrdersController::class, 'getOrders']);
@@ -54,6 +57,6 @@ Route::middleware('auth:sanctum')->group(function () {
 });
 
 
-Route::get('/users', function () {
-    return UserResource::collection(User::all());
-});
+// Route::get('/users', function () {
+//     return UserResource::collection(User::all());
+// });
