@@ -12,6 +12,7 @@ use App\Http\Resources\UserResource;
 use App\Models\User;
 use App\Http\Controllers\ForgotController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\Api\Addresses\AddressesController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -55,7 +56,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('user', [\App\Http\Controllers\AuthController::class, 'user']);
     Route::post('logout', [\App\Http\Controllers\AuthController::class, 'logout']);
 });
-
+Route::post('update/address/{UserId}', [AddressesController::class, 'update']);
+Route::get('address/{UserId}', [AddressesController::class, 'getAddressById']);
 
 // Route::get('/users', function () {
 //     return UserResource::collection(User::all());
