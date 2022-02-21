@@ -6,8 +6,8 @@
 </template>
 
 <script>
-    import listIng from './common/ListMeals'
-    import toolbar from "../common/toolbar.vue"
+    import listIng from '../../components/meals/ListMeals.vue'
+    import toolbar from "../../components/common/toolbar.vue"
 
 export default {
         components: { toolbar, listIng }

@@ -6,19 +6,9 @@
     right: 1rem;
 }
 
-.router-link{
-    text-decoration: none;
-    color: white;
-}
-.router-link:hover{
-    text-decoration: none;
-    color: rgb(167, 167, 167);
-}
 
 .router-link-active {
     font-weight: bold;
-    color: rgb(0, 10, 143) !important;
-    font-size: 1rem;
 }
 
 #content{

@@ -36,9 +36,9 @@
 
 <script>
 
-import toolbar from "../../common/toolbar.vue"
+import toolbar from "../../../components/common/toolbar.vue"
 import {onMounted} from "vue";
-import useIngredients from "../../../../composables/ingredients.js";
+import useIngredients from "../../../composables/ingredients.js";
 
 export default{
     props: {

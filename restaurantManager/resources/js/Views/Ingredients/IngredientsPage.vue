@@ -1,14 +1,13 @@
 <template>
     <div>
-        
         <toolbar />
         <listIng />
     </div>
 </template>
 
 <script>
-    import toolbar from "../common/toolbar.vue"
-    import listIng from "../ingredients/common/ListIngredients.vue"
+    import toolbar from "../../components/common/toolbar.vue"
+    import listIng from "../../components/IngredientsPage/ingredients/ListIngredients.vue"
 
     export default{
         components: { listIng ,toolbar }

@@ -18,6 +18,8 @@ class OrdersResources extends JsonResource
             'OrderNo' => $this->OrderNo,
             'OrderPrice' => $this->OrderPrice,
             'Status' => $this->Status,
+            'OrderType' => $this->OrderType,
+            'OrderTypeName' => $this->OrderTypeName,
             'StatusName' => $this->StatusName,
             'OrderDate' => $this->OrderDate,
             'EndDate' => $this->EndDate,

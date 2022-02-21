@@ -1,12 +1,14 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-import IngredientsPage from "../components/IngredientsPage/ingredients/IngredientsPage"
-import IngredientEdit from "../components/IngredientsPage/ingredients/common/IngredientsEdit"
-import MealsPage from "../components/IngredientsPage/meals/MealsPage"
-import MealEdit from "../components/IngredientsPage/meals/common/MealEdit"
-import MenuPage from "../components/MenuPage/MenuPage"
+import IngredientsPage from "../Views/Ingredients/IngredientsPage"
+import IngredientEdit from "../views/Ingredients/Edit/IngredientsEdit"
+import MealsPage from "../views/Meals/MealsPage"
+import MealEdit from "../views/Meals/Edit/MealEdit"
+import MenuPage from "../views/Menu/MenuPage"
+import OrderPage from "../views/Orders/OrdersPage"
+import KitchenPage from "../views/Kitchen/KitchenPage"
 
-import Home from "../components/homePage"
+import Home from "../views/Home/homePage"
 
 
 const routes  = [
@@ -44,10 +46,20 @@ const routes  = [
         component: MenuPage,
     },
     {
-        path: '/home',
+        path: '/',
         name: 'home',
         component: Home,
-    }
+    },
+    {
+        path: '/lista-zamowien',
+        name: 'order.index',
+        component: OrderPage,
+    },
+    {
+        path: '/kuchnia/panel',
+        name: 'kitchen.index',
+        component: KitchenPage,
+    },
 ]
 
 const router = createRouter({

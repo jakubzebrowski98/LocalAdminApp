@@ -3,15 +3,15 @@
 namespace App\Http\Controllers\Api\Orders;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Order\OrdersResources;
 use Illuminate\Http\Request;
 use App\Models\Orders\Base\Orders;
-use App\Http\Resources\OrdersResource;
 use Illuminate\Support\Facades\Validator;
 
 class OrdersController extends Controller
 {
     public function getOrders(){
-        return OrdersResource::collection(Orders::get());
+        return OrdersResources::collection(Orders::get());
     }
     public function index(){
 

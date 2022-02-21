@@ -1,5 +1,5 @@
 <template>
-    <div class="card mx-3 shadow-lg mt-3">
+    <div class="card shadow-lg mt-3">
         <div class="card-header">
             <div class="row">
                 <div class="col">
@@ -24,7 +24,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="ingredient in ingredients">
+                    <tr v-for="ingredient in ingredients" v-bind:key="ingredient.IngId">
                         <td>
                            {{ ingredient.IngName }}
                         </td>
@@ -68,7 +68,7 @@
 
 <script>
 
-    import useIngredients from "../../../../composables/ingredients.js";
+    import useIngredients from "../../../composables/ingredients";
     import { onMounted, reactive } from "vue";
     
     export default {

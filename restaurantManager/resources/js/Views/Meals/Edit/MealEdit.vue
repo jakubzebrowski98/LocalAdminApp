@@ -1,10 +1,10 @@
 <template>
-    <div>
+    <div class="">
         <toolbar />
-        <div class="col mt-3">
+        <div class="col mt-3 mx-n3">
             <div class="row">
-                <div class="col-md-6 mb-3">
-                    <div class="card card-body shadow-lg">
+                <div class="col-md-6 px-2">
+                    <div class="card card-body shadow-lg mb-3">
                         <h1>Edytuj posiłek</h1>
                         <form v-on:submit.prevent="saveMeal">
                             <div class="form-floating mb-3">
@@ -37,10 +37,10 @@
                         </form>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="card card-body shadow-lg">
+                <div class="col-md-6 mb-3 px-2">
+                    <div class="card card-body shadow-lg mb-3">
                         <h1 class="dasplay-6">Zdjęcie</h1>
-                        <input ref="file" type="file">
+                        <input ref="file" type="file" class="form-control">
                         <div class="d-flex justify-content-end">
                             <button type="button" v-on:click="handleFileUpload()" class="btn btn-success">Zapisz</button>
                         </div>
@@ -91,12 +91,12 @@
 
 <script>
 
-import toolbar from "../../common/toolbar.vue"
+import toolbar from "../../../components/common/toolbar"
 import { onMounted, reactive, ref } from "vue"
-import useCategory from "../../../../composables/Category";
-import useMeals from "../../../../composables/Meals.js";
-import useIngredients from "../../../../composables/ingredients";
-import useMealsIngredients from "../../../../composables/MealsIngredients";
+import useCategory from "../../../composables/Category";
+import useMeals from "../../../composables/Meals.js";
+import useIngredients from "../../../composables/ingredients";
+import useMealsIngredients from "../../../composables/MealsIngredients";
 
 export default{
     props: {
@@ -165,3 +165,9 @@ export default{
 }
 
 </script>
+
+<style>
+.mx-n3{
+    margin: 0 -1rem;
+}
+</style>

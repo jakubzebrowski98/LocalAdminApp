@@ -1,5 +1,5 @@
 <template>
-    <div class="card mx-3 shadow-lg mt-3">
+    <div class="card shadow-lg mt-3">
         <div class="card-header">
             <div class="row">
                 <div class="col">
@@ -65,7 +65,7 @@
                                     <input type="text" class="form-control" v-model="form.Price" id="Price" placeholder="Cena">
                                     <label for="Price">Cena</label>
                                 </div>
-                                <div class="form-floating">
+                                <div class="form-floating mb-3">
                                     <select class="form-select" id="floatingSelect" v-model="form.Category">
                                         <option value="">--Wybierz--</option>
                                         <option v-for="Category in Categories" v-bind:value="Category.id">{{ Category.Name }}</option>
@@ -96,8 +96,8 @@
 
 <script>
 
-    import useMeals from "../../../../composables/Meals.js"
-    import useCategory from "../../../../composables/Category";
+    import useMeals from "../../composables/Meals.js"
+    import useCategory from "../../composables/Category";
     import { onMounted, reactive } from "vue"
     
     export default {

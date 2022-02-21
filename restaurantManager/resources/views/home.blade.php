@@ -23,21 +23,13 @@
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    {{-- <link href="css/sb-admin-2.min.css" rel="stylesheet"> --}}
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/customCss.css') }}" rel="stylesheet">
 </head>
-<body class="sidebar-toggled">
+<body>
     <div id="app">
-        <div id="wrapper">
-            @include('components.SideBar')
-            <div id="content-wrapper">
-                @include('components.NavBar')
-                <div id="content" class="col-sm mt-1 px-0">
-                    <router-view/>
-                </div>
-            </div>
-        </div>
+        <basicpage />
     </div>
 </body>
 
@@ -50,7 +42,7 @@
 <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
 <!-- Custom scripts for all pages-->
-<script src="js/sb-admin-2.min.js"></script>
+{{-- <script src="js/sb-admin-2.min.js"></script> --}}
 
 <!-- Page level plugins -->
 <script src="vendor/chart.js/Chart.min.js"></script>
