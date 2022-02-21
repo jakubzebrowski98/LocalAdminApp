@@ -11,12 +11,12 @@ class DropClientidFromOrderMeals extends Migration
      *
      * @return void
      */
-    public function up()
-    {
-        Schema::table('ordermeals', function (Blueprint $table) {
-            $table->dropColumn('ClientId');
-        });
-    }
+    // public function up()
+    // {
+    //     Schema::table('order_meals', function (Blueprint $table) {
+    //         $table->dropColumn('ClientId');
+    //     });
+    // }
 
     /**
      * Reverse the migrations.

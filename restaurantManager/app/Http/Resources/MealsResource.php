@@ -22,6 +22,7 @@ class MealsResource extends JsonResource
             'Status' => $this->Status,
             'StatusName' => $this->StatusName,
             'Category' => $this->Category,
+            'Photo' => $this->Photo,
             'CategoryName' => $this->CategoryName,
         ];
     }

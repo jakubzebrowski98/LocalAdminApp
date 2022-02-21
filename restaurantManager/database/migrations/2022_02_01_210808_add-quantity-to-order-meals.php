@@ -11,12 +11,12 @@ class AddQuantityToOrderMeals extends Migration
      *
      * @return void
      */
-    public function up()
-    {
-        Schema::table('ordermeals', function (Blueprint $table) {
-            $table->integer('Quantity');
-        });
-    }
+    // public function up()
+    // {
+    //     Schema::table('order_meals', function (Blueprint $table) {
+    //         $table->integer('Quantity');
+    //     });
+    // }
 
     /**
      * Reverse the migrations.

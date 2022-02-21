@@ -17,7 +17,7 @@ class ForgotController extends Controller
 $email = $request->input('email');
 if(User::where('email', $email)->doesntExist()){
     return response([
-        'message' => 'User don\'t exists!'
+        'message' => 'Nie ma zadnego konta powiązanego z tym adresem e-mail!'
     ],404);
 }
 
@@ -35,7 +35,7 @@ $message->subject('Reset your password');
 });
 
 return response([
-    'message' => 'Check your email!'
+    'message' => 'Sprawdź swój e-mail!'
 ]);
     } catch (\Exception $exception){
         return response([
@@ -53,7 +53,7 @@ return response([
         /** @var User $user */
         if (!$user = User::where('email', $passwordResets->email)->first()){
             return response ([
-                'message' => 'User doesn\'t exist!'
+                'message' => 'Uzytkownik nie istnieje!'
             ],404);
         }
         $user->password = Hash::make($request->input('password'));
