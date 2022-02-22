@@ -19,6 +19,7 @@ class Meals extends Model
         'Name',
         'Price',
         'Status',
+        'Description',
         'Category'
     ];
 

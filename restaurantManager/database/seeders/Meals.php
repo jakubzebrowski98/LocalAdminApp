@@ -136,7 +136,7 @@ class Meals extends Seeder
                 'Category' => '6'
             ],
             [
-                'Name' => 'Lodu z owocami sezonowymi',
+                'Name' => 'Lody z owocami sezonowymi',
                 'Price' => '18',
                 'Status' => '1',
                 'Description' => '',

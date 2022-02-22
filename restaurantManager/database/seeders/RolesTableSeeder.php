@@ -24,12 +24,6 @@ class RolesTableSeeder extends Seeder
                 'created_at' => new \DateTime,
                 'updated_at' => null,
             ], 
-            [
-                'name' => "chef", 
-                'created_at' => new \DateTime,
-                'updated_at' => null,
-            ], 
-    
         ];
     
         DB::table('roles')->insert($roles);
