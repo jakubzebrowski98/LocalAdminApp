@@ -38,6 +38,8 @@ class MenuController extends Controller
     public function getMealsByCategory($id)
     {
         $meals = Meals::where('Category', $id)->get();
+
+
         return MenuResource::collection($meals);
     }
 }

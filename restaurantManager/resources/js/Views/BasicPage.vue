@@ -4,9 +4,9 @@
         <div class="sidebar">
             <sidebar />
         </div>
-        <div class="content w-100">
+        <div class="w-100">
             <navbar />
-            <div class="mx-3 mt-3">
+            <div class="mx-3 mt-3 content overflow-auto">
                  <router-view />
             </div>
            
@@ -30,6 +30,9 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style>
+.content{
+    height:92.2vh;
+    overflow:auto;
+}
 </style>

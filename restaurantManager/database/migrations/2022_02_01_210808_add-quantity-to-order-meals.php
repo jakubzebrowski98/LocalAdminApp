@@ -25,8 +25,8 @@ class AddQuantityToOrderMeals extends Migration
      */
     public function down()
     {
-        if (Schema::hasColumn('ordermeals', 'Quantity')){
-            Schema::table('ordermeals', function (Blueprint $table) {
+        if (Schema::hasColumn('order_meals', 'Quantity')){
+            Schema::table('order_meals', function (Blueprint $table) {
                 $table->dropColumn('Quantity');
             });
         }

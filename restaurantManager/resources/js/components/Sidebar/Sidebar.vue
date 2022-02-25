@@ -32,14 +32,17 @@
             <div class="d-flex justify-content-between align-items-center text-light"
                  data-bs-toggle="collapse" href="#Kitchen" role="button" aria-expanded="false" aria-controls="Kitchen">
                 <p class="text-light py-0 mb-0">
-                    Kuchnia
+                    Panele
                 </p>
                 <i class="fas fa-sort-down"></i>
             </div>
             <div class="collapse" id="Kitchen">
                 <div class="colapsedNav">
+                    <p class="">
+                      <router-link :to="{ name: 'kitchen.index' }" class="noStyleLink">Kuchnia</router-link>
+                    </p>
                     <p class="mb-0">
-                      <router-link :to="{ name: 'kitchen.index' }" class="noStyleLink">Panel</router-link>
+                      <router-link :to="{ name: 'toCollect' }" class="noStyleLink">Wydawka</router-link>
                     </p>
                 </div>
             </div>
@@ -64,20 +67,14 @@
             <div class="d-flex justify-content-between align-items-center text-light"
                  data-bs-toggle="collapse" href="#Payment" role="button" aria-expanded="false" aria-controls="Payment">
                 <p class="text-light py-0 mb-0">
-                    Płatność
+                    Statystyki
                 </p>
                 <i class="fas fa-sort-down"></i>
             </div>
             <div class="collapse" id="Payment">
                 <div class="colapsedNav">
                     <p>
-                      <router-link :to="{ name: 'Ingredients.index' }" class="noStyleLink">Składniki</router-link>
-                    </p>
-                    <p>
-                        <router-link :to="{ name: 'meals.index' }" class="noStyleLink">Posiłki</router-link>
-                    </p>
-                    <p class="mb-0">
-                        <router-link :to="{ name: 'menu.index' }" class="noStyleLink">Menu</router-link>
+                      <router-link :to="{ name: 'Ingredients.index' }" class="noStyleLink">Podsumowanie zamówień</router-link>
                     </p>
                 </div>
             </div>

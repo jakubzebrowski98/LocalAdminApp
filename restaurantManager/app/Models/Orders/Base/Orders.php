@@ -2,6 +2,7 @@
 
 namespace App\Models\Orders\Base;
 
+use App\Models\Meals\Base\OrderMealsV;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -32,6 +33,13 @@ class Orders extends Model
         $statuses = OrderStatus::pluck('Name','id');
 
         return $statuses[$this->Status];
+    }
+
+    public function getDetailsAttribute()
+    {
+        $orderDetails = OrderMealsV::where('OrderId', $this->OrderId)->get();
+
+        return $orderDetails;
     }
 
     public function getOrderTypeNameAttribute()

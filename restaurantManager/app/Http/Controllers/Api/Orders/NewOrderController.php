@@ -71,6 +71,6 @@ class NewOrderController extends Controller
             return response()->json($response);
         }else{
                return response()->json('error');
-            }
+        }
     } 
 }

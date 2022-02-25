@@ -11,4 +11,8 @@ class OrderStatus extends Model
     protected $table = 'order_statuses';
     protected $primaryKey = 'id';
     public $timestamps = false;
+
+    public static function getArray(){
+        return self::pluck('Name', 'id');
+    }
 }

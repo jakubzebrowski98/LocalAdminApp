@@ -3,7 +3,7 @@
         <div class="card-header">
             <div class="row">
                 <div class="col">
-                    <h1 class="dasplay-6">Lista składników</h1>
+                    <h2 class="dasplay-6">Lista składników</h2>
                 </div>
                 <div class="col">
                     <div class="d-flex justify-content-end">
