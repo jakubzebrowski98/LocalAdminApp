@@ -11,6 +11,8 @@ use App\Models\Orders\Base\OrderStatus;
 use App\Http\Resources\OrdersResource;
 use App\Http\Resources\Order\OrdersResources;
 use Illuminate\Support\Facades\Validator;
+use App\Models\Meals\Base\Meals;
+use App\Http\Resources\MealsResource;
 
 class OrdersController extends Controller
 {
@@ -24,7 +26,19 @@ class OrdersController extends Controller
         'orders' => $orders
     ]);
     }
-    
+      public function getOrdersForUser(Request $request){
+          $orders = Orders::where('UserId', $request->UserId)->get();
+          //$meals = Meals::where('MealId', 1)->get();
+
+          foreach ($orders as $order){
+                $OrderMeals[] = OrderMeals::where('OrderId', $order['OrderId'])->get();
+
+                foreach($OrderMeals as $ordermeal[]){
+                    $orderList[] = Meals::where('MealId', 1)->get();
+                }
+          }
+          return $orderList;
+    }
 
     public function store(Request $request){
         $lastOrder = Orders::whereDate('OrderDate', Carbon::today())->orderBy('OrderDate', 'DESC')->first();
