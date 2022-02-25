@@ -16,6 +16,7 @@ class OrdersController extends Controller
 {
     public function getOrders(){
         return OrdersResources::collection(Orders::orderBy('OrderId', 'desc')->get());
+        //return OrdersResources::collection(Orders::all());
     }
     public function index(){
 

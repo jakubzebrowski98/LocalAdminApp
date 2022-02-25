@@ -15,10 +15,12 @@ class Orders extends Model
 
     const ORDERTYPES = [        
         '1' => 'Na miejscu',
-        '2' => 'Na wynos'
+        '2' => 'Na wynos',
+        '3' => 'Web'
     ];
     
     protected $fillable = [
+        'OrderId',
         'OrderNo',
         'OrderPrice',
         'Status',
@@ -28,12 +30,12 @@ class Orders extends Model
         'UserId',
     ];
 
-    public function getStatusNameAttribute()
-    {
-        $statuses = OrderStatus::pluck('Name','id');
+    // public function getStatusNameAttribute()
+    // {
+    //     $statuses = OrderStatus::pluck('Name','id');
 
-        return $statuses[$this->Status];
-    }
+    //     return $statuses[$this->Status];
+    // }
 
     public function getDetailsAttribute()
     {

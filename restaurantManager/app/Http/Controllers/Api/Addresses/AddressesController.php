@@ -9,7 +9,10 @@ use Illuminate\Http\Request;
 
 class AddressesController extends Controller
 {
-
+    
+    public function getAddresses(){
+       return AddressesResource::collection(Address::all());
+    }
     public function update(Request $request, $UserId)
     {
         $addresses = Address::updateOrCreate(
