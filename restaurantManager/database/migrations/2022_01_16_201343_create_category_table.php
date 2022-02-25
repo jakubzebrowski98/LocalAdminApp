@@ -28,8 +28,6 @@ class CreateCategoryTable extends Migration
      */
     public function down()
     {
-        Schema::create('meals_category', function (Blueprint $table) {
-            //
-        });
+
     }
 }

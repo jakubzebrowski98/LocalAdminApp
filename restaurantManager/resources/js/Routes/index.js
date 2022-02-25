@@ -6,7 +6,9 @@ import MealsPage from "../views/Meals/MealsPage"
 import MealEdit from "../views/Meals/Edit/MealEdit"
 import MenuPage from "../views/Menu/MenuPage"
 import OrderPage from "../views/Orders/OrdersPage"
+import OrderDetails from "../views/Orders/Details/DetailsPage"
 import KitchenPage from "../views/Kitchen/KitchenPage"
+import CollectPanel from "../views/ToCollect/CollectPanel"
 
 import Home from "../views/Home/homePage"
 
@@ -19,7 +21,7 @@ const routes  = [
             IngredientsPage,
     },
     {
-        path: '/lista-skladnikow/:IngId/edytuj',
+        path: '/edytuj-skladnik-:IngId',
         name: 'Ingredients.edit',
         component: IngredientEdit,
         props: true
@@ -30,7 +32,7 @@ const routes  = [
         component: MealsPage,
     },
     {
-        path: '/lista-posilkow/:MealId/edytuj',
+        path: '/edytuj-posilek-:MealId',
         name: 'meals.edit',
         component: MealEdit,
         props: true
@@ -56,9 +58,20 @@ const routes  = [
         component: OrderPage,
     },
     {
-        path: '/kuchnia/panel',
+        path: '/kuchnia',
         name: 'kitchen.index',
         component: KitchenPage,
+    },
+    {
+        path: '/wydawka',
+        name: 'toCollect',
+        component: CollectPanel,
+    },
+    {
+        path: '/szczegoly-zamowienia-:OrderId',
+        name: 'OrderDetails',
+        component: OrderDetails,
+        props: true
     },
 ]
 

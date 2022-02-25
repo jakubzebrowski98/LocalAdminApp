@@ -2,6 +2,7 @@
 
 namespace App\Models\Orders\Base;
 
+use App\Models\Meals\Base\OrderMealsV;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -14,10 +15,12 @@ class Orders extends Model
 
     const ORDERTYPES = [        
         '1' => 'Na miejscu',
-        '2' => 'Na wynos'
+        '2' => 'Na wynos',
+        '3' => 'Web'
     ];
     
     protected $fillable = [
+        'OrderId',
         'OrderNo',
         'OrderPrice',
         'Status',
@@ -27,11 +30,18 @@ class Orders extends Model
         'UserId',
     ];
 
-    public function getStatusNameAttribute()
-    {
-        $statuses = OrderStatus::pluck('Name','id');
+    // public function getStatusNameAttribute()
+    // {
+    //     $statuses = OrderStatus::pluck('Name','id');
 
-        return $statuses[$this->Status];
+    //     return $statuses[$this->Status];
+    // }
+
+    public function getDetailsAttribute()
+    {
+        $orderDetails = OrderMealsV::where('OrderId', $this->OrderId)->get();
+
+        return $orderDetails;
     }
 
     public function getOrderTypeNameAttribute()

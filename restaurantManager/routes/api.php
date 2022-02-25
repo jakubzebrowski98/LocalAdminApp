@@ -39,7 +39,13 @@ Route::apiResource('users', UserController::class);
 Route::get('mealsIngredients/{MealId}', [MealsIngredientsController::class, 'getThisMealsIng']);
 Route::get('orders', [OrdersController::class, 'getOrders']);
 Route::post('order', [OrdersController::class, 'store']);
+Route::get('order/{OrderId}', [OrdersController::class, 'getThisOrder']);
+Route::post('update-order/{OrderId}', [OrdersController::class, 'update']);
 Route::post('new-order', [NewOrderController::class, 'store']);
+Route::get('kitchen-orders', [OrdersController::class, 'getPrepareOrder']);
+Route::get('orders-to-collect', [OrdersController::class, 'getToCollectOrder']);
+Route::get('order-statuses', [OrdersController::class, 'statuses']);
+Route::get('addresses', [AddressesController::class, 'getAddresses']);
 Route::post('mealsIngredients/store', [MealsIngredientsController::class, 'store']);
 Route::delete('mealsIngredients/{MealIngId}/delete', [MealsIngredientsController::class, 'destroy']);
 Route::get('menu', [MenuController::class, 'index']);
@@ -58,6 +64,7 @@ Route::middleware('auth:sanctum')->group(function () {
 });
 Route::post('update/address/{UserId}', [AddressesController::class, 'update']);
 Route::get('address/{UserId}', [AddressesController::class, 'getAddressById']);
+Route::get('order/{UserId}', [OrdersController::class, 'getOrdersForUser']);
 
 // Route::get('/users', function () {
 //     return UserResource::collection(User::all());
