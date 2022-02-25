@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use App\Models\Orders\Base\Orders;
 use App\Models\Orders\Base\OrderMeals;
 use App\Models\Orders\Base\OrderStatus;
+use App\Models\Meals\Base\Meals;
 
 class OrdersController extends Controller
 {
@@ -23,7 +24,19 @@ class OrdersController extends Controller
         'orders' => $orders
     ]);
     }
-    
+      public function getOrdersForUser(Request $request){
+          $orders = Orders::where('UserId', $request->UserId)->get();
+          //$meals = Meals::where('MealId', 1)->get();
+
+          foreach ($orders as $order){
+                $OrderMeals[] = OrderMeals::where('OrderId', $order['OrderId'])->get();
+
+                foreach($OrderMeals as $ordermeal[]){
+                    $orderList[] = Meals::where('MealId', 1)->get();
+                }
+          }
+          return $orderList;
+    }
 
     public function store(Request $request){
         $lastOrder = Orders::whereDate('OrderDate', Carbon::today())->orderBy('OrderDate', 'DESC')->first();

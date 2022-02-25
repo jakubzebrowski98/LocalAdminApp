@@ -64,6 +64,7 @@ Route::middleware('auth:sanctum')->group(function () {
 });
 Route::post('update/address/{UserId}', [AddressesController::class, 'update']);
 Route::get('address/{UserId}', [AddressesController::class, 'getAddressById']);
+Route::get('order/{UserId}', [OrdersController::class, 'getOrdersForUser']);
 
 // Route::get('/users', function () {
 //     return UserResource::collection(User::all());
