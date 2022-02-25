@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 class NewOrderController extends Controller
 {
     public function store(Request $request){
+
         $lastOrder = Orders::whereDate('OrderDate', Carbon::today())->orderBy('OrderDate', 'DESC')->first();
 
         if($lastOrder !== null){
@@ -30,7 +31,13 @@ class NewOrderController extends Controller
         $newOrder->OrderPrice = $request->price;
         $newOrder->Status = 1;
         $newOrder->OrderDate = now();
-        $newOrder->UserId = 0;
+
+        if(isset($request->UserId)){
+            $newOrder->OrderPrice = $request->UserId;
+        }else $newOrder->UserId = 0;
+        
+
+
 
         if($newOrder->save()){
             $result = true;

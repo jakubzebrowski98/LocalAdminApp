@@ -3,13 +3,13 @@
 namespace App\Http\Controllers\Api\Orders;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Order\OrdersResources;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Models\Orders\Base\Orders;
 use App\Models\Orders\Base\OrderMeals;
 use App\Models\Orders\Base\OrderStatus;
 use App\Http\Resources\OrdersResource;
-use App\Http\Resources\Order\OrdersResources;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Meals\Base\Meals;
 use App\Http\Resources\MealsResource;
@@ -17,7 +17,7 @@ use App\Http\Resources\MealsResource;
 class OrdersController extends Controller
 {
     public function getOrders(){
-        return OrdersResource::collection(Orders::get());
+        return OrdersResources::collection(Orders::get());
     }
     public function index(){
 

@@ -1,16 +1,16 @@
 <template>
-<div class="card mx-3 shadow-lg mt-3">
+<div class="card shadow-lg mt-3">
     <div class="card-header">
         <div class="row">
             <div class="col">
                 <h1 class="dasplay-6">Lista Menu</h1>
             </div>
             <div class="col">
-                <div class="d-flex justify-content-end">
+                <!-- <div class="d-flex justify-content-end">
                     <button type="button" class="btn btn-success btn-sm" @click="showEditMenu()">
                         <i class="fas fa-cog"></i>
                     </button>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -75,8 +75,8 @@
 
 <script>
 
-    import useMenu from "../../../composables/Menu"
-    import useMeals from "../../../composables/Meals"
+    import useMenu from "../../composables/Menu"
+    import useMeals from "../../composables/Meals"
     import { onMounted, reactive, ref} from "vue"
     
     export default {

@@ -17,7 +17,7 @@ class CreateCategoryTable extends Migration
         Schema::create('meals_category', function (Blueprint $table) {
             $table->id();
             $table->string('Name');
-            $table->timestamps();
+            $table->integer('Stat');
         });
     }
 

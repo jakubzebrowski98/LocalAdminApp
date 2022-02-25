@@ -10,5 +10,10 @@ class Category extends Model
     protected $connection = 'mysql';
     protected $table = 'meals_category';
     protected $primaryKey = 'id';
-    public $timestamps = true;
+    public $timestamps = false;
+
+protected $fillable = [
+    'Name',
+    'Stat'
+];
 }

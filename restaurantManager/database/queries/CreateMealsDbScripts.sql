@@ -13,8 +13,8 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `MealsDb`.`meals` (
   MealId INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  Name VARCHAR(45) NOT NULL,
-  Description VARCHAR(255) NULL,
+  Name VARCHAR(72) NOT NULL,
+  Description VARCHAR(512) NULL,
   Price DECIMAL(10,2) UNSIGNED NULL,
   Status INT NOT NULL DEFAULT 1,
   Photo VARCHAR(255) null);

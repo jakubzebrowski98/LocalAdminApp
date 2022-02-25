@@ -17,31 +17,31 @@ class ingredients extends Seeder
         DB::table('ingredients')
         ->insert([
         [
-            'IngName' => 'Burger Wołowy',
+            'IngName' => 'Ryż',
             'Status' => '1',
         ],
         [
-            'IngName' => 'Cebula',
+            'IngName' => 'Awokado',
             'Status' => '1',
         ],
         [
-            'IngName' => 'Ser Cedar',
+            'IngName' => 'Łosoś',
             'Status' => '1',
         ],
         [
-            'IngName' => 'Ser Camembert',
+            'IngName' => 'Kalmar',
             'Status' => '1',
         ],
         [
-            'IngName' => 'Rukola',
+            'IngName' => 'Krewetka',
             'Status' => '1',
         ],
         [
-            'IngName' => 'Mix Sałat',
+            'IngName' => 'Por',
             'Status' => '1',
         ],
         [
-            'IngName' => 'Sałata lodowa',
+            'IngName' => 'Grzyby shitake',
             'Status' => '1',
         ],
         [
@@ -49,31 +49,35 @@ class ingredients extends Seeder
             'Status' => '1',
         ],
         [
-            'IngName' => 'Pomidor',
+            'IngName' => 'Rzepa',
             'Status' => '1',
         ],
         [
-            'IngName' => 'Cebula karmelizowana',
+            'IngName' => 'Chilli',
             'Status' => '1',
         ],
         [
-            'IngName' => 'Korniszony',
+            'IngName' => 'Papryka Jalapeño',
             'Status' => '1',
         ],
         [
-            'IngName' => 'Bułka piwna',
+            'IngName' => 'Majonez',
             'Status' => '1',
         ],
         [
-            'IngName' => 'Bułka sezamowa',
+            'IngName' => 'Tykwa',
             'Status' => '1',
         ],
         [
-            'IngName' => 'Bułka domowa',
+            'IngName' => 'Sezam',
             'Status' => '1',
         ],
         [
-            'IngName' => 'Frytki',
+            'IngName' => 'Imbir',
+            'Status' => '1',
+        ],
+        [
+            'IngName' => 'Fasola Eda Mame',
             'Status' => '1',
         ],
     ]);

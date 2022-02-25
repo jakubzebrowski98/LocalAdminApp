@@ -11,11 +11,17 @@ class Orders extends Model
     protected $table = 'orders';
     protected $primaryKey = 'OrderId';
     public $timestamps = false;
+
+    const ORDERTYPES = [        
+        '1' => 'Na miejscu',
+        '2' => 'Na wynos'
+    ];
     
     protected $fillable = [
         'OrderNo',
         'OrderPrice',
         'Status',
+        'OrderType',
         'OrderDate',
         'EndDate',
         'UserId',
@@ -27,4 +33,10 @@ class Orders extends Model
 
         return $statuses[$this->Status];
     }
+
+    public function getOrderTypeNameAttribute()
+    {
+        return self::ORDERTYPES[$this->OrderType];
+    }
+
 }
