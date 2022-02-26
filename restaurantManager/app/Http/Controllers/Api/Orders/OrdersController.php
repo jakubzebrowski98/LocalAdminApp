@@ -23,19 +23,11 @@ class OrdersController extends Controller
         return response()->json([
         'orders' => $orders
     ]);
+    
     }
-      public function getOrdersForUser(Request $request){
-          $orders = Orders::where('UserId', $request->UserId)->get();
-          //$meals = Meals::where('MealId', 1)->get();
-
-          foreach ($orders as $order){
-                $OrderMeals[] = OrderMeals::where('OrderId', $order['OrderId'])->get();
-
-                foreach($OrderMeals as $ordermeal[]){
-                    $orderList[] = Meals::where('MealId', 1)->get();
-                }
-          }
-          return $orderList;
+      public function getOrdersForUser($UserId){
+        $orders = Orders::where('UserId', $UserId)->get();
+        return OrdersResources::collection($orders);
     }
 
     public function store(Request $request){
@@ -131,5 +123,4 @@ class OrdersController extends Controller
         $order = Orders::findOrFail($OrderId);
         return new OrdersResources($order);
     }
-    
 }
