@@ -45,7 +45,7 @@ Route::post('new-order', [NewOrderController::class, 'store']);
 Route::get('kitchen-orders', [OrdersController::class, 'getPrepareOrder']);
 Route::get('orders-to-collect', [OrdersController::class, 'getToCollectOrder']);
 Route::get('order-statuses', [OrdersController::class, 'statuses']);
-
+Route::get('addresses', [AddressesController::class, 'getAddresses']);
 Route::post('mealsIngredients/store', [MealsIngredientsController::class, 'store']);
 Route::delete('mealsIngredients/{MealIngId}/delete', [MealsIngredientsController::class, 'destroy']);
 Route::get('menu', [MenuController::class, 'index']);
