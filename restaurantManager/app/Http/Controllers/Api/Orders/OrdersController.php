@@ -24,6 +24,7 @@ class OrdersController extends Controller
         return response()->json([
         'orders' => $orders
     ]);
+    
     }
     
     public function getOrdersForUser($UserId){
@@ -164,5 +165,4 @@ class OrdersController extends Controller
         $order = Orders::findOrFail($OrderId);
         return new OrdersResources($order);
     }
-    
 }

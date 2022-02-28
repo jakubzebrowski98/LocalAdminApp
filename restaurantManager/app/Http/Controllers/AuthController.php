@@ -8,19 +8,23 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Hash;
 use Symfony\Component\HttpFoundation\Response;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
+
 
 class AuthController extends Controller
 {
-    // public function index(){
-    //     //$users = User::get();
-    //     //return $users;
-    //     $users = DB::table('users')->get();
-    //     return $users;
-    //    }
-
+ 
     public function register(Request $request)
     {
+        $rules = [
+            "name" => "required|string|min:3",
+            "email" => 'required|string|email|max:255|unique:users',
+            "password" => 'required|string|min:8',
+        ];
+        $validator = Validator::make($request->all(), $rules);
+        if ($validator->fails()) {
+            return response()->json(['message' => 'Błędne dane'], 400);
+        }
         $user = User::create([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
@@ -29,7 +33,7 @@ class AuthController extends Controller
         $role = $request->input('role');
         $user->roles()->attach($role); 
         
-        return response()->json(['message' => 'Registration Successful.'], 201);
+        return response()->json(['message' => 'Zarejstrowano pomyślnie'], 201);
     }
 
     public function login(Request $request)
