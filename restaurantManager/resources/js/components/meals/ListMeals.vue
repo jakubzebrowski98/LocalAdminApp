@@ -34,7 +34,7 @@
                            {{ meal.Price }} zł
                         </td>
                         <td>
-                           {{ meal.CategoryName }} 
+                           {{ meal.Category }} 
                         </td>
                         <td>
                            {{ meal.StatusName }}
