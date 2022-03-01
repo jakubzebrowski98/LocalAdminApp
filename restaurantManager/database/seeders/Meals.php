@@ -27,14 +27,14 @@ class Meals extends Seeder
                 'Price' => '24',
                 'Status' => '1',
                 'Description' => '',
-                'Category' => '2'
+                'Category' => '1'
             ],
             [
                 'Name' => 'Gyoza z krewetkami, chorizo i serkiem Philadelphia',
                 'Price' => '24',
                 'Status' => '1',
                 'Description' => '',
-                'Category' => '2'
+                'Category' => '1'
             ],
             [
                 'Name' => 'Warzywa w tempurze',
