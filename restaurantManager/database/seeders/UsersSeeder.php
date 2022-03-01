@@ -27,7 +27,7 @@ class UsersSeeder extends Seeder
             [
                 'Name' => 'Admin',
                 'email' => 'admin@admin.com',
-                'password' => Hash::make('localhostPassword'),
+                'password' => Hash::make('admin'),
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
              
