@@ -16,7 +16,6 @@ class OrdersController extends Controller
 {
     public function getOrders(){
         return OrdersResources::collection(Orders::orderBy('OrderId', 'desc')->get());
-        //return OrdersResources::collection(Orders::all());
     }
     public function index(){
 
@@ -28,7 +27,7 @@ class OrdersController extends Controller
     }
     
     public function getOrdersForUser($UserId){
-        $orders = Orders::where('UserId', $UserId)->get();
+        $orders = Orders::where('UserId', $UserId)->orderBy('OrderDate', 'DESC')->get();
         return OrdersResources::collection($orders);
     }
 
@@ -42,18 +41,14 @@ class OrdersController extends Controller
         }
 
         $result = true;
-        //1-nieoplacone 2-w realizacji
         $statusId = 1;
-        $statusValue = OrderStatus::where('Value', $statusId)->first();
-        $statusName = $statusValue->Name;
 
         $order = new Orders;
         $order->OrderNo = $orderNo;
-        //1 = na miejscu 2 = na wynos 3 = zamówienia web 
+        //1 = na miejscu 2 = na wynos 3 = zamówienia web
         $order->OrderType = 3;
         $order->OrderPrice = $request->OrderPrice;
         $order->Status = $statusId;
-        $order->StatusName = $statusName;
         $order->OrderDate = now();
         $order->UserId = $request->UserId;
         $order->save();
@@ -95,14 +90,10 @@ class OrdersController extends Controller
 
     public function orderPayment($orderId){
         $statusId = 2;
-        $statusValue = OrderStatus::where('Value', $statusId)->first();
-        $statusName = $statusValue->Name;
-        Orders::where('OrderId', $orderId)->update(array('StatusName' => $statusName));
         Orders::where('OrderId', $orderId)->update(array('Status' => $statusId));
     }
 
     public function ordersStats(){
-        //$orders = Orders::where('Status', 2)->get()->sum('OrderPrice');
         //statystki dla miesięcy
         return Orders::select(
             Orders::raw('year(OrderDate) as year'),
@@ -117,7 +108,7 @@ class OrdersController extends Controller
     }
 
     public function getPaidOrdersWeb(){
-        $orders = Orders::where('Status', '>=' ,  2)->where('OrderType', 3)->get();
+        $orders = Orders::where('Status', '>=' ,  2)->where('OrderType', 3)->orderBy('OrderDate', 'DESC')->get();
         return $orders;
     }
 
