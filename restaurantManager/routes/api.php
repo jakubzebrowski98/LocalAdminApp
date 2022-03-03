@@ -64,7 +64,7 @@ Route::middleware('auth:sanctum')->group(function () {
 });
 Route::post('update/address/{UserId}', [AddressesController::class, 'update']);
 Route::get('address/{UserId}', [AddressesController::class, 'getAddressById']);
-Route::get('userOrder/{UserId}', [OrdersController::class, 'getOrdersForUser']);
+Route::get('userOrder/', [OrdersController::class, 'getOrdersForUser']);
 Route::get('lastOrderForUser/{UserId}', [OrdersController::class, 'lastOrderForUser']);
 Route::post('orderPayment/{orderId}', [OrdersController::class, 'orderPayment']);
 Route::get('ordersStats', [OrdersController::class, 'ordersStats']);

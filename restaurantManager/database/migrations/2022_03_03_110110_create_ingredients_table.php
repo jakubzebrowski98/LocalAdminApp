@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class MealsCategory extends Migration
+class CreateIngredientsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class MealsCategory extends Migration
      */
     public function up()
     {
-        Schema::table('meals', function (Blueprint $table) {
-            $table->string('Category');
-        });
+         Schema::create('ingredients', function (Blueprint $table) {
+             $table->id('IngId');
+             $table->text('IngName');
+             $table->integer('Status');
+
+         });
     }
 
     /**
@@ -25,8 +28,6 @@ class MealsCategory extends Migration
      */
     public function down()
     {
-        Schema::table('meals', function (Blueprint $table) {
-            $table->dropColumn('Category');
-        });
+        // Schema::dropIfExists('ingredients');
     }
 }

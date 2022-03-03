@@ -26,7 +26,8 @@ class OrdersController extends Controller
     
     }
     
-    public function getOrdersForUser($UserId){
+    public function getOrdersForUser(Request $request){
+        $UserId = $request->UserId;
         $orders = Orders::where('UserId', $UserId)->orderBy('OrderDate', 'DESC')->get();
         return OrdersResources::collection($orders);
     }
