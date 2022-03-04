@@ -29,6 +29,6 @@ class CreateMealsIngredientsTable extends Migration
      */
     public function down()
     {
-        // Schema::dropIfExists('meals_ingredients');
+        Schema::dropIfExists('meals_ingredients');
     }
 }

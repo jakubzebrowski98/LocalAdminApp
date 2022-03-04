@@ -19,7 +19,7 @@
                             </div>
                             <div class="d-flex justify-content-between align-items-center mt-1">
                                 <h6>Średnia wartość zamówienia</h6>
-                                <h3><strong>{{ (statistics.TodayIncome / statistics.today).toFixed(2) }} zł</strong></h3>
+                                <h3><strong>{{ isNaN(statistics.TodayIncome / statistics.today) == 0 ? (statistics.TodayIncome / statistics.today).toFixed(2) : '0'}} zł</strong></h3>
                             </div>
                             <div class="d-flex justify-content-between align-items-center mt-1">
                                 <h5>Przychód</h5>
