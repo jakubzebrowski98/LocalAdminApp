@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMealTable extends Migration
+class CreateMealsIngredientsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,15 @@ class CreateMealTable extends Migration
      */
     public function up()
     {
-         Schema::create('meals', function (Blueprint $table) {
-             $table->id('MealId');
-             $table->text('Name');
-             $table->text('Description')->nullable();
-             $table->decimal('Price');
+         Schema::create('meals_ingredients', function (Blueprint $table) {
+             $table->id('MealIngId');
+             $table->integer('MealId');
+             $table->integer('IngId');
              $table->integer('Status');
-             $table->integer('Category');
-             $table->text('Photo')->nullable();
 
          });
     }
+
     /**
      * Reverse the migrations.
      *
@@ -31,6 +29,6 @@ class CreateMealTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('meals');
+        // Schema::dropIfExists('meals_ingredients');
     }
 }

@@ -20,12 +20,12 @@ class MealsIngredientsController extends Controller
     {
         $mealIng = MealsIngredients::create($request->all());
 
-        return new MealsIngredientsResource($mealIng);
+        return new MealsIngredientsVResource($mealIng);
     }
 
     public function show($MealIngId)
     {
-        return new MealsIngredientsResource(MealsIngredients::findOrFail($MealIngId));
+        return new MealsIngredientsVResource(MealsIngredients::findOrFail($MealIngId));
     }
 
     public function update(Request $request, $MealIngId)

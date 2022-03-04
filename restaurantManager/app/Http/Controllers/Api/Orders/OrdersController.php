@@ -17,7 +17,6 @@ class OrdersController extends Controller
 {
     public function getOrders(){
         return OrdersResources::collection(Orders::orderBy('OrderId', 'desc')->get());
-        //return OrdersResources::collection(Orders::all());
     }
     public function index(){
 
@@ -27,8 +26,10 @@ class OrdersController extends Controller
     ]);
     
     }
-      public function getOrdersForUser($UserId){
-        $orders = Orders::where('UserId', $UserId)->get();
+    
+    public function getOrdersForUser(Request $request){
+        $UserId = $request->UserId;
+        $orders = Orders::where('UserId', $UserId)->orderBy('OrderDate', 'DESC')->get();
         return OrdersResources::collection($orders);
     }
 
@@ -42,13 +43,14 @@ class OrdersController extends Controller
         }
 
         $result = true;
+        $statusId = 1;
 
         $order = new Orders;
         $order->OrderNo = $orderNo;
-        //1 = na miejscu 2 = na wynos 3 = zamówienia web 
+        //1 = na miejscu 2 = na wynos 3 = zamówienia web
         $order->OrderType = 3;
         $order->OrderPrice = $request->OrderPrice;
-        $order->Status = 1;
+        $order->Status = $statusId;
         $order->OrderDate = now();
         $order->UserId = $request->UserId;
         $order->save();
@@ -81,6 +83,37 @@ class OrdersController extends Controller
             return response()->json('success');
         }
     }
+
+    public function lastOrderForUser($UserId){
+        $orders = Orders::where('UserId', $UserId)->orderBy('OrderId', 'DESC')->first();
+        $orderId = $orders->OrderId;
+        return $orderId;
+    }
+
+    public function orderPayment($orderId){
+        $statusId = 2;
+        Orders::where('OrderId', $orderId)->update(array('Status' => $statusId));
+    }
+
+    public function ordersStats(){
+        //statystki dla miesięcy
+        return Orders::select(
+            Orders::raw('year(OrderDate) as year'),
+            Orders::raw('month(OrderDate) as month'),
+            Orders::raw('sum(OrderPrice) as price'),
+        )
+            ->where(Orders::raw('Status'), '>=', "2")
+            ->where(Orders::raw('OrderType'), '=', "3")
+            ->groupBy('year')
+            ->groupBy('month')
+            ->get();
+    }
+
+    public function getPaidOrdersWeb(){
+        $orders = Orders::where('Status', '>=' ,  2)->where('OrderType', 3)->orderBy('OrderDate', 'DESC')->get();
+        return $orders;
+    }
+
 
     public function update(Request $request, $OrderId)
     {   
