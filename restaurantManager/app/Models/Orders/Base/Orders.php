@@ -30,12 +30,12 @@ class Orders extends Model
         'UserId',
     ];
 
-    // public function getStatusNameAttribute()
-    // {
-    //     $statuses = OrderStatus::pluck('Name','id');
+    public function getStatusNameAttribute()
+    {
+        $statuses = OrderStatus::pluck('Name','id');
 
-    //     return $statuses[$this->Status];
-    // }
+        return $statuses[$this->Status];
+    }
 
     public function getDetailsAttribute()
     {

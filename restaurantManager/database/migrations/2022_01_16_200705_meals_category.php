@@ -16,7 +16,7 @@ class MealsCategory extends Migration
         Schema::table('meals', function (Blueprint $table) {
             $table->string('Category');
         });
-    }
+    }   
 
     /**
      * Reverse the migrations.
@@ -25,8 +25,8 @@ class MealsCategory extends Migration
      */
     public function down()
     {
-        Schema::table('meals', function (Blueprint $table) {
-            $table->dropColumn('Category');
-        });
+        // Schema::table('meals', function (Blueprint $table) {
+        //     $table->dropColumn('Category');
+        // });
     }
 }

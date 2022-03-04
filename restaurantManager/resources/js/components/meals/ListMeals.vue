@@ -53,13 +53,17 @@
                     <div class="modal-content">
                         <form @submit.stop.prevent="saveMeal">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="AddMealModallabel">Dodanie składnika</h5>
+                                <h5 class="modal-title" id="AddMealModallabel">Dodanie posiłku</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
                                 <div class="form-floating mb-3">
                                     <input type="text" class="form-control" v-model="form.Name" id="Name" placeholder="Nazwa">
                                     <label for="Name">Nazwa</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                  <textarea class="form-control" style="height:150px" v-model="form.Description" name="Description" placeholder="Opis" id="Description"></textarea>
+                                  <label for="Description">Opis</label>
                                 </div>
                                 <div class="form-floating mb-3">
                                     <input type="text" class="form-control" v-model="form.Price" id="Price" placeholder="Cena">
@@ -107,6 +111,7 @@
 
             const form = reactive({
                 Name: '',
+                Description: '',
                 Status: '',
                 Price: '',
                 Category: '',

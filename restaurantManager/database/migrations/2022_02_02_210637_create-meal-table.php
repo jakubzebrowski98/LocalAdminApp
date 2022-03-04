@@ -13,16 +13,17 @@ class CreateMealTable extends Migration
      */
     public function up()
     {
-        // Schema::create('meals', function (Blueprint $table) {
-        //     $table->id('MealId');
-        //     $table->string('Name');
-        //     $table->string('Description');
-        //     $table->string('password');
-        //     $table->string('password');
+        Schema::create('meals', function (Blueprint $table) {
+            $table->id('MealId');
+            $table->string('Name')->nullable();
+            $table->string('Description')->nullable();
+            $table->decimal('Price')->nullable();
+            $table->integer('Status');
+            $table->integer('Category')->nullable();
+            $table->string('Photo')->nullable();
 
-        // });
+        });
     }
-
     /**
      * Reverse the migrations.
      *
@@ -30,6 +31,6 @@ class CreateMealTable extends Migration
      */
     public function down()
     {
-        // Schema::dropIfExists('meals');
+        Schema::dropIfExists('meals');
     }
 }

@@ -11,6 +11,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-6">
+                        <h1 class="mb-3">W trakcie przygotowywania</h1>
                         <div v-for="Order in Orders">
                             <div class="col-6" v-if="Order.Status < 3">
                                 <h1 class="display-1 text-secondary mb-0" >
@@ -20,6 +21,7 @@
                         </div>
                     </div>
                     <div class="col-6">
+                        <h1 class="mb-3">Do odbioru</h1>
                         <div v-for="Order in Orders">
                             <div class="col-6" v-if="Order.Status === 3">
                                 <h1 class="display-1 text-success ready-to-order mb-0" >

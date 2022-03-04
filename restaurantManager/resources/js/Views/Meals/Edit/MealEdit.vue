@@ -1,7 +1,7 @@
 <template>
     <div class="">
         <toolbar />
-        <div class="row">
+        <div class="row mt-3">
             <div class="col-md-6 px-2">
                 <div class="card card-body shadow-lg mb-3">
                     <h1>Edytuj posiłek</h1>
@@ -9,6 +9,10 @@
                         <div class="form-floating mb-3">
                             <input type="text" id="Name" class="form-control" name="Name" v-model="meal.Name">
                             <label for="Name">Nazwa</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                          <textarea class="form-control" style="height:150px" v-model="meal.Description" name="Description" placeholder="Opis" id="Description"></textarea>
+                          <label for="Description">Opis</label>
                         </div>
                         <div class="form-floating mb-3">
                             <input type="text" id="Price" class="form-control" name="Price" v-model="meal.Price">

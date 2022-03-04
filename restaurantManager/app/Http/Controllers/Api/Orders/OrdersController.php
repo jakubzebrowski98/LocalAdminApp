@@ -11,6 +11,7 @@ use App\Models\Orders\Base\Orders;
 use App\Models\Orders\Base\OrderMeals;
 use App\Models\Orders\Base\OrderStatus;
 use App\Models\Meals\Base\Meals;
+use App\Models\Orders\Statistics;
 
 class OrdersController extends Controller
 {
@@ -123,5 +124,19 @@ class OrdersController extends Controller
     public function getThisOrder($OrderId){
         $order = Orders::findOrFail($OrderId);
         return new OrdersResources($order);
+    }
+
+    public function getAllOrderCount(){
+
+        $orderStatistics = new Statistics();
+        $orderStatistics->getAll = Statistics::getAll();
+        $orderStatistics->getLastMounth = Statistics::getLastMounth();
+        $orderStatistics->lastWeek = Statistics::getLastWeek();
+        $orderStatistics->today = Statistics::getToday();
+        $orderStatistics->totalIncome = Statistics::getTotalIncome();
+        $orderStatistics->getLastMounthIncome = Statistics::getLastMounthIncome();
+        $orderStatistics->LastWeekIncome = Statistics::getLastWeekIncome();
+        $orderStatistics->TodayIncome = Statistics::getTodayIncome();
+        return response()->json($orderStatistics);
     }
 }

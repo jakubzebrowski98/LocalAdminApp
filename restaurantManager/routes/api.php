@@ -40,6 +40,7 @@ Route::get('mealsIngredients/{MealId}', [MealsIngredientsController::class, 'get
 Route::get('orders', [OrdersController::class, 'getOrders']);
 Route::post('order', [OrdersController::class, 'store']);
 Route::get('order/{OrderId}', [OrdersController::class, 'getThisOrder']);
+Route::get('orderStatistics/all', [OrdersController::class, 'getAllOrderCount']);
 Route::post('update-order/{OrderId}', [OrdersController::class, 'update']);
 Route::post('new-order', [NewOrderController::class, 'store']);
 Route::get('kitchen-orders', [OrdersController::class, 'getPrepareOrder']);

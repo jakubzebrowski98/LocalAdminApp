@@ -37,6 +37,7 @@
         "mdbvue": "^6.7.3",
         "vue": "^3.2.20",
         "vue-loader": "^16.8.1",
+        "vue-paginate": "^3.6.0",
         "vue-router": "^4.0.12",
         "vue-template-compiler": "^2.6.12",
         "watch": "^1.0.2"

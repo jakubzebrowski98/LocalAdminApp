@@ -1,5 +1,5 @@
 <template>
-    <div class="sidebar bg-dark" :class="{showNavbar: active, closeNavbar: !active}">
+    <div class="sidebar bg-dark" >
         <div class="logo">
             <p>
               <router-link :to="{ name: 'home' }" class="noStyleLink text-secondary">BestBurgers <i class="fas fa-hamburger"></i></router-link>
@@ -42,7 +42,7 @@
                       <router-link :to="{ name: 'kitchen.index' }" class="noStyleLink">Kuchnia</router-link>
                     </p>
                     <p class="mb-0">
-                      <router-link :to="{ name: 'toCollect' }" class="noStyleLink">Wydawka</router-link>
+                      <router-link :to="{ name: 'toCollect' }" class="noStyleLink">Odbór zamówienia</router-link>
                     </p>
                 </div>
             </div>
@@ -74,7 +74,7 @@
             <div class="collapse" id="Payment">
                 <div class="colapsedNav">
                     <p>
-                      <router-link :to="{ name: 'Ingredients.index' }" class="noStyleLink">Podsumowanie zamówień</router-link>
+                      <router-link :to="{ name: 'StatisticsOrder' }" class="noStyleLink">Statystyki zamówień</router-link>
                     </p>
                 </div>
             </div>
@@ -136,7 +136,6 @@ export default {
 
     @media (max-width: 768px){
         .sidebar {
-            display: none;
             position: relative;
             width: 220px;
             height: 100vh;

@@ -5,6 +5,7 @@ export default function useOrders() {
     const Orders = ref([])
     const order = ref([])
     const statuses = ref('')
+    const statistics = ref('')
     const errors = ref('')
 
     const getOrders = async () =>{
@@ -20,6 +21,11 @@ export default function useOrders() {
     const getOrderStatuses = async () =>{
         let res = await axios.get('/api/order-statuses');
         statuses.value = res.data;
+    }
+
+    const getOrderStatistics = async () =>{
+        let res = await axios.get('/api/orderStatistics/all');
+        statistics.value = res.data;
     }
 
     const getKitchenPrepareOrders = async () =>{
@@ -46,6 +52,8 @@ export default function useOrders() {
         getKitchenPrepareOrders,
         getOrderStatuses,
         statuses,
-        getCurrentOrder
+        getCurrentOrder,
+        getOrderStatistics,
+        statistics
     }
 }

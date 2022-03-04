@@ -9,6 +9,7 @@ import OrderPage from "../views/Orders/OrdersPage"
 import OrderDetails from "../views/Orders/Details/DetailsPage"
 import KitchenPage from "../views/Kitchen/KitchenPage"
 import CollectPanel from "../views/ToCollect/CollectPanel"
+import StatisticsOrder from "../views/Statistics/MainPage"
 
 import Home from "../views/Home/homePage"
 
@@ -72,6 +73,11 @@ const routes  = [
         name: 'OrderDetails',
         component: OrderDetails,
         props: true
+    },
+    {
+        path: '/statystyki-zamowien',
+        name: 'StatisticsOrder',
+        component: StatisticsOrder,
     },
 ]
 

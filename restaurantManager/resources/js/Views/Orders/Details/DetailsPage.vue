@@ -25,8 +25,7 @@
                     <p><strong>Data ukończenia: </strong> {{ order.EndDate ?? ' - ' }}</p>
                     <p><strong>Typ zamówienia: </strong> {{ order.OrderTypeName }}</p>
                     <p><strong>Status: </strong> {{ order.StatusName }}</p>
-                    <p><strong>Zamawiający: </strong> {{ order.UserId }}</p>
-                    <h4 class="mt-3">Dane zamawiającego</h4>
+                    <p><strong>Zamawiający: </strong> {{ order.UserId === 0 ? 'Kiosk' : order.UserId }}</p>
                 </div>
             </div>
         </div>

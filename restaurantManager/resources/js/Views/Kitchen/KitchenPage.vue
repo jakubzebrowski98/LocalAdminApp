@@ -10,7 +10,7 @@
             </div>
             <div class="card-body">
                 <div class="row">
-                    <div class="col-sm-6 mb-3" v-for="Order in Orders">
+                    <div class="col-sm-6 mb-3" v-for="Order in Orders" :key="Order.OrderId">
                         <div class="card card-body mx-2 border-dark h-100 " :class="{
                             'bg-secondary' : Order.Status == 1,
                             'bg-primary' : Order.Status == 2,
@@ -34,7 +34,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row" v-for="Detail in Order.Details">
+                            <div class="row" v-for="Detail in Order.Details" :key="Detail.Id">
                                 <div class="row">
                                     <div class="col">
                                         <h5>{{ Detail.Name }}</h5>
